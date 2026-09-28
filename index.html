@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jessica — </title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f9f6f0;
+  --bg2: #f1ece3;
+  --bg3: #e8e1d6;
+  --white: #ffffff;
+  --ink: #1e1a14;
+  --ink2: #4a4438;
+  --ink3: #8a8070;
+  --dim: #c8c0b0;
+  --border: #ddd6c8;
+
+  --ret: #c8420a;    /* retorno — naranja tostado */
+  --ret2: #e86030;
+  --week1: #1a6e3a;  /* semana 1 — verde */
+  --week2: #1a4a8a;  /* semana 2 — azul */
+  --week3: #7a1a6a;  /* semana 3 — violeta */
+
+  --plyo: #b83010;
+  --power: #c07010;
+  --str: #1a4080;
+  --abs: #801060;
+  --mob: #106040;
+  --yoga: #601880;
+  --cardio: #106060;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+header {
+  background: var(--ink);
+  padding: 18px 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 300;
+}
+
+.logo {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.logo-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 900;
+  color: #f9f6f0;
+  letter-spacing: 0.01em;
+}
+
+.logo-ver {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--ret2);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border: 1px solid rgba(232,96,48,0.4);
+  border-radius: 2px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.hp {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 3px 10px;
+  border-radius: 2px;
+}
+.hp.alert { background: var(--ret); color: #fff; }
+.hp.neutral { border: 1px solid #2e2820; color: #6a6258; }
+.hp.good { background: #0e2a16; border: 1px solid #1a4828; color: #5ad080; }
+
+/* ── HERO ── */
+.hero {
+  background: var(--ink);
+  padding: 60px 44px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--ret) 0%, var(--week2) 50%, var(--week3) 100%);
+}
+
+.hero-watermark {
+  position: absolute;
+  font-family: 'Playfair Display', serif;
+  font-size: 280px;
+  font-weight: 900;
+  right: -30px;
+  top: -40px;
+  color: rgba(255,255,255,0.025);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--ret2);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: var(--ret2);
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(48px, 6vw, 86px);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: #f9f6f0;
+  margin-bottom: 28px;
+}
+
+.hero-title .ret { color: var(--ret2); font-style: italic; }
+
+.hero-note {
+  background: rgba(200,66,10,0.12);
+  border: 1px solid rgba(200,66,10,0.25);
+  border-left: 3px solid var(--ret);
+  border-radius: 6px;
+  padding: 14px 18px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: #b0a898;
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+/* WEEK PROGRESSION */
+.week-track {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.wt-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #4a4438;
+  margin-bottom: 4px;
+}
+
+.week-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 8px;
+  border: 1px solid;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.week-bar:hover { opacity: 0.85; }
+
+.week-bar.w1 { background: rgba(26,110,58,0.1); border-color: rgba(26,110,58,0.3); }
+.week-bar.w2 { background: rgba(26,74,138,0.1); border-color: rgba(26,74,138,0.3); }
+.week-bar.w3 { background: rgba(122,26,106,0.1); border-color: rgba(122,26,106,0.3); }
+
+.wb-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1;
+  flex-shrink: 0;
+  width: 36px;
+}
+.w1 .wb-num { color: #5ad080; }
+.w2 .wb-num { color: #6090e8; }
+.w3 .wb-num { color: #d080c8; }
+
+.wb-info {}
+.wb-dates {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: #6a6258;
+  margin-bottom: 4px;
+}
+.wb-desc {
+  font-size: 13px;
+  font-weight: 600;
+  color: #c8c0b0;
+}
+.wb-pct {
+  margin-left: auto;
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.w1 .wb-pct { color: rgba(90,208,128,0.4); }
+.w2 .wb-pct { color: rgba(96,144,232,0.4); }
+.w3 .wb-pct { color: rgba(208,128,200,0.4); }
+
+.active-week { outline: 2px solid; }
+.w1.active-week { outline-color: #5ad080; }
+
+/* WEIGHTS TABLE */
+.weights-table {
+  background: #141210;
+  border: 1px solid #252018;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 24px;
+}
+
+.wt-header {
+  padding: 12px 18px;
+  background: #1c1a16;
+  border-bottom: 1px solid #252018;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wt-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #4a4438;
+}
+
+.wt-week-selector {
+  display: flex;
+  gap: 4px;
+}
+
+.wws {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  padding: 2px 8px;
+  border-radius: 2px;
+  cursor: pointer;
+  border: 1px solid #252018;
+  color: #4a4438;
+  transition: all 0.15s;
+}
+.wws.active-w1 { background: rgba(26,110,58,0.2); border-color: rgba(26,110,58,0.4); color: #5ad080; }
+.wws.active-w2 { background: rgba(26,74,138,0.2); border-color: rgba(26,74,138,0.4); color: #6090e8; }
+.wws.active-w3 { background: rgba(122,26,106,0.2); border-color: rgba(122,26,106,0.4); color: #d080c8; }
+
+.wt-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr;
+  gap: 0;
+  border-bottom: 1px solid #1c1a16;
+}
+.wt-row:last-child { border-bottom: none; }
+.wt-row.header { background: #181614; }
+
+.wt-cell {
+  padding: 9px 14px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  border-right: 1px solid #1c1a16;
+}
+.wt-cell:last-child { border-right: none; }
+.wt-cell.label { color: #8a8070; }
+.wt-cell.hd { color: #4a4438; font-size: 9px; text-transform: uppercase; letter-spacing: 0.08em; }
+.wt-cell.v1 { color: #5ad080; }
+.wt-cell.v2 { color: #6090e8; }
+.wt-cell.v3 { color: #d080c8; }
+
+/* PULLUP TRACKER */
+.pullup-tracker {
+  background: #141210;
+  border: 1px solid #252018;
+  border-left: 3px solid var(--ret);
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin-top: 10px;
+}
+.pt-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #4a4438;
+  margin-bottom: 10px;
+}
+.pt-track {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.pts {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  padding: 3px 10px;
+  border-radius: 3px;
+}
+.pts.done { background: #0e2a16; color: #5ad080; border: 1px solid #1a4828; }
+.pts.regress { background: rgba(200,66,10,0.2); color: var(--ret2); border: 1px solid rgba(200,66,10,0.3); }
+.pts.now { background: var(--ret); color: #fff; font-weight: 500; }
+.pts.next { background: #1c1a16; color: #4a4438; border: 1px solid #252018; }
+.pts-arr { color: #2a2820; font-size: 10px; }
+.pt-note { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--ret2); margin-top: 8px; }
+
+/* ── TABS ── */
+.tabs-wrap {
+  background: var(--ink);
+  position: sticky;
+  top: 59px;
+  z-index: 200;
+  border-bottom: 1px solid #252018;
+}
+
+.day-tabs {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 0 44px;
+}
+.day-tabs::-webkit-scrollbar { display: none; }
+
+.dtab {
+  padding: 14px 22px 12px;
+  cursor: pointer;
+  flex-shrink: 0;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: all 0.15s;
+}
+.dtab:hover { background: #181614; }
+.dtab.active { border-bottom-color: var(--ret); background: #181614; }
+
+.dt-d {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #3a3428;
+  margin-bottom: 3px;
+}
+.dt-f {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #6a6258;
+  white-space: nowrap;
+}
+.dtab.active .dt-f { color: var(--ret2); }
+.dt-ps { display: flex; gap: 4px; margin-top: 4px; }
+.dtp {
+  font-family: 'DM Mono', monospace;
+  font-size: 7px;
+  padding: 1px 5px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.dtp.leg { background: rgba(26,74,138,0.15); color: #6090e8; }
+.dtp.arm { background: rgba(200,66,10,0.15); color: var(--ret2); }
+.dtp.yog { background: rgba(96,24,128,0.15); color: #c080e8; }
+.dtp.run { background: rgba(16,96,96,0.15); color: #40c0c0; }
+
+/* ── PANELS ── */
+.content {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 40px 44px 100px;
+}
+
+.panel { display: none; animation: fadeUp 0.2s ease; }
+.panel.active { display: block; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* PANEL HEADER */
+.ph {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 36px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.ph-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 4vw, 50px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.ph-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+.ptag {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  padding: 3px 9px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.ptag.leg { background: rgba(26,74,138,0.08); border: 1px solid rgba(26,74,138,0.2); color: var(--str); }
+.ptag.arm { background: rgba(200,66,10,0.08); border: 1px solid rgba(200,66,10,0.2); color: var(--ret); }
+.ptag.yoga { background: rgba(96,24,128,0.08); border: 1px solid rgba(96,24,128,0.2); color: var(--yoga); }
+.ptag.run { background: rgba(16,96,96,0.08); border: 1px solid rgba(16,96,96,0.2); color: var(--cardio); }
+.ptag.note { background: var(--bg2); border: 1px solid var(--border); color: var(--ink2); }
+.ptag.ret { background: rgba(200,66,10,0.08); border: 1px solid rgba(200,66,10,0.25); color: var(--ret); }
+
+.ph-aside {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--ret);
+  border-radius: 8px;
+  padding: 14px 18px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--ink2);
+  line-height: 1.7;
+  max-width: 340px;
+  flex-shrink: 0;
+}
+
+/* BLOCK */
+.block { margin-bottom: 32px; }
+
+.blk-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 8px 8px 0 0;
+  border: 1px solid;
+}
+
+.blk-head.plyo  { background: rgba(184,48,16,0.06); border-color: rgba(184,48,16,0.2); }
+.blk-head.power { background: rgba(192,112,16,0.06); border-color: rgba(192,112,16,0.2); }
+.blk-head.str   { background: rgba(26,64,128,0.06); border-color: rgba(26,64,128,0.2); }
+.blk-head.abs   { background: rgba(128,16,96,0.06); border-color: rgba(128,16,96,0.2); }
+.blk-head.mpre  { background: rgba(16,96,64,0.06); border-color: rgba(16,96,64,0.2); }
+.blk-head.mpost { background: rgba(26,74,138,0.06); border-color: rgba(26,74,138,0.2); }
+.blk-head.yoga  { background: rgba(96,24,128,0.06); border-color: rgba(96,24,128,0.2); }
+.blk-head.cardio{ background: rgba(16,96,96,0.06); border-color: rgba(16,96,96,0.2); }
+.blk-head.cali  { background: rgba(26,64,128,0.06); border-color: rgba(26,64,128,0.2); }
+
+.bh-icon { font-size: 16px; }
+.bh-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 2px 7px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.bh-num.plyo  { background: rgba(184,48,16,0.15); color: var(--plyo); }
+.bh-num.power { background: rgba(192,112,16,0.15); color: var(--power); }
+.bh-num.str   { background: rgba(26,64,128,0.15); color: var(--str); }
+.bh-num.abs   { background: rgba(128,16,96,0.15); color: var(--abs); }
+.bh-num.mpre  { background: rgba(16,96,64,0.15); color: var(--mob); }
+.bh-num.mpost { background: rgba(26,74,138,0.15); color: #4070c0; }
+.bh-num.yoga  { background: rgba(96,24,128,0.15); color: var(--yoga); }
+.bh-num.cardio{ background: rgba(16,96,96,0.15); color: var(--cardio); }
+.bh-num.cali  { background: rgba(26,64,128,0.15); color: var(--str); }
+
+.bh-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+.bh-title.plyo  { color: var(--plyo); }
+.bh-title.power { color: var(--power); }
+.bh-title.str   { color: var(--str); }
+.bh-title.abs   { color: var(--abs); }
+.bh-title.mpre  { color: var(--mob); }
+.bh-title.mpost { color: #4070c0; }
+.bh-title.yoga  { color: var(--yoga); }
+.bh-title.cardio{ color: var(--cardio); }
+.bh-title.cali  { color: var(--str); }
+
+.bh-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  color: var(--ink3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 1px;
+}
+
+.blk-body {
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  background: var(--white);
+  overflow: hidden;
+}
+
+/* STRENGTH TABLE */
+.st { width: 100%; border-collapse: collapse; }
+.st thead { background: var(--bg2); }
+.st th {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink3);
+  padding: 10px 16px;
+  text-align: left;
+  font-weight: 400;
+}
+.st td {
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--bg2);
+  vertical-align: top;
+  font-size: 13px;
+}
+.st tr:last-child td { border-bottom: none; }
+.st tr:hover td { background: var(--bg); transition: 0.1s; }
+
+.td-n { font-weight: 600; color: var(--ink); }
+.td-t { font-size: 11px; color: var(--ink3); margin-top: 2px; line-height: 1.45; }
+.td-s { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--str); white-space: nowrap; }
+
+.wprog {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.w-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  padding: 2px 0;
+}
+.w-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.w-dot.d1 { background: #5ad080; }
+.w-dot.d2 { background: #6090e8; }
+.w-dot.d3 { background: #d080c8; }
+.w-val.d1 { color: #5ad080; }
+.w-val.d2 { color: #6090e8; }
+.w-val.d3 { color: #d080c8; }
+
+.prog {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  padding: 2px 7px;
+  border-radius: 2px;
+  display: inline-block;
+  white-space: nowrap;
+}
+.prog.reps  { background: rgba(16,96,64,0.08); border: 1px solid rgba(16,96,64,0.25); color: var(--mob); }
+.prog.hold  { background: rgba(192,112,16,0.08); border: 1px solid rgba(192,112,16,0.25); color: var(--power); }
+.prog.maint { background: var(--bg2); border: 1px solid var(--border); color: var(--ink3); }
+
+/* CARD GRID */
+.cg {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0;
+}
+
+.xc {
+  padding: 15px 17px;
+  border-right: 1px solid var(--bg2);
+  border-bottom: 1px solid var(--bg2);
+  position: relative;
+  transition: background 0.12s;
+}
+.xc:hover { background: var(--bg); }
+.xc::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0; width: 3px;
+}
+.xc.plyo::before  { background: var(--plyo); }
+.xc.power::before { background: var(--power); }
+.xc.str::before   { background: var(--str); }
+.xc.abs::before   { background: var(--abs); }
+.xc.mpre::before  { background: var(--mob); }
+.xc.mpost::before { background: #4070c0; }
+.xc.yoga::before  { background: var(--yoga); }
+.xc.cali::before  { background: var(--str); }
+
+.xc-n { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--dim); margin-bottom: 5px; }
+.xc-name { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 3px; line-height: 1.3; }
+.xc-meta { font-family: 'DM Mono', monospace; font-size: 10px; margin-bottom: 6px; }
+.xc-meta.plyo  { color: var(--plyo); }
+.xc-meta.power { color: var(--power); }
+.xc-meta.str   { color: var(--str); }
+.xc-meta.abs   { color: var(--abs); }
+.xc-meta.mpre  { color: var(--mob); }
+.xc-meta.mpost { color: #4070c0; }
+.xc-meta.yoga  { color: var(--yoga); }
+.xc-meta.cali  { color: var(--str); }
+.xc-tip { font-size: 11px; color: var(--ink2); line-height: 1.5; margin-bottom: 5px; }
+.xc-why { font-size: 10px; color: var(--mob); font-style: italic; }
+.xc-prog { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--ret); margin-top: 4px; }
+
+.xl {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  text-decoration: none;
+  margin-top: 7px;
+  padding: 3px 8px;
+  border-radius: 3px;
+  border: 1px solid;
+  transition: background 0.1s;
+}
+.xl.b { color: var(--str); border-color: rgba(26,64,128,0.25); }
+.xl.b:hover { background: rgba(26,64,128,0.06); }
+.xl.r { color: var(--plyo); border-color: rgba(184,48,16,0.25); }
+.xl.r:hover { background: rgba(184,48,16,0.06); }
+.xl.g { color: var(--mob); border-color: rgba(16,96,64,0.25); }
+.xl.g:hover { background: rgba(16,96,64,0.06); }
+.xl.o { color: var(--power); border-color: rgba(192,112,16,0.25); }
+.xl.o:hover { background: rgba(192,112,16,0.06); }
+.xl.p { color: var(--yoga); border-color: rgba(96,24,128,0.25); }
+.xl.p:hover { background: rgba(96,24,128,0.06); }
+.xl.t { color: var(--cardio); border-color: rgba(16,96,96,0.25); }
+.xl.t:hover { background: rgba(16,96,96,0.06); }
+
+/* NOTES SECTION */
+.notes-sec {
+  background: var(--ink);
+  border-radius: 12px;
+  padding: 32px;
+  margin-top: 48px;
+}
+.ns-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 900;
+  color: #f9f6f0;
+  margin-bottom: 4px;
+}
+.ns-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #3a3428;
+  margin-bottom: 24px;
+}
+.ns-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 10px; }
+
+.nc {
+  background: #1a1814;
+  border: 1px solid #252018;
+  border-radius: 8px;
+  padding: 16px 18px;
+}
+.nc-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+}
+.nc-title.r { color: var(--ret2); }
+.nc-title.g { color: #5ad080; }
+.nc-title.b { color: #6090e8; }
+.nc-title.p { color: #d080c8; }
+.nc-title.o { color: #f0b050; }
+
+.ni {
+  display: flex;
+  gap: 8px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: #5a5448;
+  padding: 6px 10px;
+  background: #141210;
+  border-radius: 4px;
+  margin-bottom: 4px;
+  line-height: 1.5;
+  align-items: flex-start;
+}
+.ni-k { color: #7a7268; flex-shrink: 0; min-width: 70px; }
+.ni-v { color: #a09888; }
+
+.ns-rule {
+  background: rgba(200,66,10,0.06);
+  border: 1px solid rgba(200,66,10,0.15);
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin-top: 14px;
+}
+.nsr-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ret2);
+  margin-bottom: 10px;
+}
+.nsr-item {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: #6a6258;
+  padding: 5px 10px;
+  background: rgba(200,66,10,0.04);
+  border-radius: 4px;
+  margin-bottom: 4px;
+  display: flex;
+  gap: 8px;
+  line-height: 1.5;
+}
+.nsr-item::before { content: '→'; color: var(--ret2); flex-shrink: 0; }
+
+/* SEP */
+.sep { height: 1px; background: var(--border); margin: 24px 0; }
+
+/* FOOTER */
+footer {
+  background: var(--ink);
+  padding: 18px 44px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.ft { font-family: 'DM Mono', monospace; font-size: 9px; color: #3a3428; }
+.creatine {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  padding: 4px 12px;
+  background: rgba(90,208,128,0.06);
+  border: 1px solid rgba(90,208,128,0.15);
+  color: #5ad080;
+  border-radius: 3px;
+}
+
+@media (max-width: 720px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  header, .hero, .content { padding-left: 20px; padding-right: 20px; }
+  .day-tabs { padding: 0 20px; }
+  footer { padding: 16px 20px; }
+  .st th:nth-child(4), .st td:nth-child(4) { display: none; }
+  .ns-grid { grid-template-columns: 1fr; }
+  .wt-row { grid-template-columns: 1fr 1fr 1fr; }
+  .wt-cell:nth-child(4) { display: none; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <span class="logo-name">Jessica</span>
+    <span class="logo-ver">V6 · Regreso Madrid</span>
+  </div>
+  <div class="header-right">
+    <span class="hp alert">Regreso gradual — muscle memory</span>
+    <span class="hp good">3 semanas → pesos completos</span>
+    <span class="hp neutral">Lun 22 Jun 2026</span>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-watermark">V6</div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Programa V6 · Madrid · 22 junio 2026</div>
+      <div class="hero-title">
+        REGRESO<br>
+        <span class="ret">Madrid.</span><br>
+        Nueva etapa.
+      </div>
+      <div class="hero-note">
+        Llevas unos meses con poco entreno por la mudanza Valladolid → Madrid. La memoria muscular hace que recuperes en 2–3 semanas lo que tardaste meses en construir. El plan empieza al 65% del V5 y sube progresivamente. No te decepciones con los pesos — es temporal y necesario para evitar lesiones.
+      </div>
+
+      <div class="week-track">
+        <div class="wt-label">Plan de 3 semanas de regreso</div>
+        <div class="week-bar w1 active-week" onclick="setWeek(1)">
+          <div class="wb-num">1</div>
+          <div class="wb-info">
+            <div class="wb-dates">22–28 junio 2026</div>
+            <div class="wb-desc">Readaptación — forma antes que carga</div>
+          </div>
+          <div class="wb-pct">65%</div>
+        </div>
+        <div class="week-bar w2" onclick="setWeek(2)">
+          <div class="wb-num">2</div>
+          <div class="wb-info">
+            <div class="wb-dates">29 jun – 5 jul 2026</div>
+            <div class="wb-desc">Progresión — si no hay dolor ni fatiga excesiva</div>
+          </div>
+          <div class="wb-pct">80%</div>
+        </div>
+        <div class="week-bar w3" onclick="setWeek(3)">
+          <div class="wb-num">3</div>
+          <div class="wb-info">
+            <div class="wb-dates">6–12 jul 2026</div>
+            <div class="wb-desc">Pesos V5 restaurados → progressive overload</div>
+          </div>
+          <div class="wb-pct">100%</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="weights-table">
+        <div class="wt-header">
+          <span class="wt-title">📋 Pesos por semana</span>
+          <div class="wt-week-selector">
+            <span class="wws active-w1" onclick="setWeek(1)">S1</span>
+            <span class="wws" onclick="setWeek(2)">S2</span>
+            <span class="wws" onclick="setWeek(3)">S3</span>
+          </div>
+        </div>
+        <div class="wt-row header">
+          <div class="wt-cell hd">Ejercicio</div>
+          <div class="wt-cell hd">S1 · 65%</div>
+          <div class="wt-cell hd">S2 · 80%</div>
+          <div class="wt-cell hd">S3 · 100%</div>
+        </div>
+        <div class="wt-row"><div class="wt-cell label">Deadlift</div><div class="wt-cell v1">40 kg</div><div class="wt-cell v2">50 kg</div><div class="wt-cell v3">60 kg</div></div>
+        <div class="wt-row"><div class="wt-cell label">Hip Thrust</div><div class="wt-cell v1">55 kg</div><div class="wt-cell v2">65 kg</div><div class="wt-cell v3">80 kg</div></div>
+        <div class="wt-row"><div class="wt-cell label">Leg Press</div><div class="wt-cell v1">70 kg</div><div class="wt-cell v2">85 kg</div><div class="wt-cell v3">100 kg</div></div>
+        <div class="wt-row"><div class="wt-cell label">Smith Squat</div><div class="wt-cell v1">27 kg</div><div class="wt-cell v2">32 kg</div><div class="wt-cell v3">40 kg</div></div>
+        <div class="wt-row"><div class="wt-cell label">Bench Press</div><div class="wt-cell v1">22 kg</div><div class="wt-cell v2">27 kg</div><div class="wt-cell v3">35 kg</div></div>
+        <div class="wt-row"><div class="wt-cell label">Lat Pulldown</div><div class="wt-cell v1">30 kg</div><div class="wt-cell v2">37 kg</div><div class="wt-cell v3">45 kg</div></div>
+        <div class="wt-row"><div class="wt-cell label">Remo polea</div><div class="wt-cell v1">22 kg</div><div class="wt-cell v2">28 kg</div><div class="wt-cell v3">35 kg</div></div>
+        <div class="wt-row"><div class="wt-cell label">Shoulder Press</div><div class="wt-cell v1">7 kg c/m</div><div class="wt-cell v2">8.5 kg</div><div class="wt-cell v3">10 kg</div></div>
+        <div class="wt-row"><div class="wt-cell label">Curl Z</div><div class="wt-cell v1">solo barra</div><div class="wt-cell v2">+ 2.5 kg</div><div class="wt-cell v3">+ 5 kg</div></div>
+        <div class="wt-row"><div class="wt-cell label">Laterales</div><div class="wt-cell v1">4 kg c/m</div><div class="wt-cell v2">5 kg</div><div class="wt-cell v3">6 kg</div></div>
+        <div class="wt-row"><div class="wt-cell label">Leg Curl</div><div class="wt-cell v1">16 kg</div><div class="wt-cell v2">20 kg</div><div class="wt-cell v3">25 kg</div></div>
+        <div class="wt-row"><div class="wt-cell label">RDL unilat.</div><div class="wt-cell v1">10 kg c/m</div><div class="wt-cell v2">13 kg</div><div class="wt-cell v3">16 kg</div></div>
+        <div class="wt-row"><div class="wt-cell label">Hollow hold</div><div class="wt-cell v1">20–25 seg</div><div class="wt-cell v2">30–35 seg</div><div class="wt-cell v3">40–45 seg</div></div>
+        <div class="wt-row"><div class="wt-cell label">Pull-up banda</div><div class="wt-cell v1">65 kg</div><div class="wt-cell v2">60 kg</div><div class="wt-cell v3">50 kg</div></div>
+      </div>
+
+      <div class="pullup-tracker">
+        <div class="pt-label">🎯 Pull-up — Regreso progresivo</div>
+        <div class="pt-track">
+          <span class="pts done">65kg ✓</span><span class="pts-arr">→</span>
+          <span class="pts done">60kg ✓</span><span class="pts-arr">→</span>
+          <span class="pts done">55kg ✓</span><span class="pts-arr">→</span>
+          <span class="pts done">50kg ✓</span><span class="pts-arr">→</span>
+          <span class="pts regress">65kg S1</span><span class="pts-arr">→</span>
+          <span class="pts now">60kg S2</span><span class="pts-arr">→</span>
+          <span class="pts next">50kg S3</span>
+        </div>
+        <div class="pt-note">Retrocedemos temporalmente por el parón — volvemos a 50 kg en S3 y seguimos bajando</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TABS -->
+  <div style="margin-top:40px; border-top: 1px solid #252018;">
+    <div class="day-tabs">
+      <div class="dtab active" onclick="show('mon',this)">
+        <div class="dt-d">Lunes · 22 Jun</div>
+        <div class="dt-f">Pierna A</div>
+        <div class="dt-ps"><span class="dtp leg">Cuád · Glúteos</span></div>
+      </div>
+      <div class="dtab" onclick="show('tue',this)">
+        <div class="dt-d">Martes · 23 Jun</div>
+        <div class="dt-f">Brazo + Run</div>
+        <div class="dt-ps"><span class="dtp arm">Hombro · Pecho · Bíceps</span><span class="dtp run">🏃</span></div>
+      </div>
+      <div class="dtab" onclick="show('wed',this)">
+        <div class="dt-d">Miércoles · 24 Jun</div>
+        <div class="dt-f">Yoga + Cali</div>
+        <div class="dt-ps"><span class="dtp yog">Skills · Yin</span></div>
+      </div>
+      <div class="dtab" onclick="show('thu',this)">
+        <div class="dt-d">Jueves · 25 Jun</div>
+        <div class="dt-f">Pierna B</div>
+        <div class="dt-ps"><span class="dtp leg">Isquios · Glúteos</span></div>
+      </div>
+      <div class="dtab" onclick="show('fri',this)">
+        <div class="dt-d">Viernes · 26 Jun</div>
+        <div class="dt-f">Brazo + Run</div>
+        <div class="dt-ps"><span class="dtp arm">Espalda · Tríceps</span><span class="dtp run">🏃</span></div>
+      </div>
+      <div class="dtab" onclick="show('sat',this)">
+        <div class="dt-d">Sábado · 28 Jun</div>
+        <div class="dt-f">Yoga + Cali</div>
+        <div class="dt-ps"><span class="dtp yog">Yoga · Runna</span></div>
+      </div>
+      <div class="dtab" onclick="show('notes',this)">
+        <div class="dt-d">Registro</div>
+        <div class="dt-f">Notas → V7</div>
+        <div class="dt-ps"><span class="dtp run">📋</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+<!-- ══ LUNES ══ -->
+<div class="panel active" id="p-mon">
+  <div class="ph">
+    <div>
+      <div class="ph-title">LUNES<br>CUÁDRICEPS & GLÚTEOS</div>
+      <div class="ph-tags">
+        <span class="ptag leg">Pierna A</span>
+        <span class="ptag ret">Semana 1 · 65% pesos</span>
+        <span class="ptag note">Plyo → Power → Strength → Abs → Mobility</span>
+      </div>
+    </div>
+    <div class="ph-aside">Primera sesión de vuelta. Escucha el cuerpo. Si algo duele (no "quema") para. El objetivo hoy es llegar al final sin lesión, no batir récords.</div>
+  </div>
+
+  <!-- MOB PRE -->
+  <div class="block">
+    <div class="blk-head mpre"><span class="bh-icon">🌅</span><span class="bh-num mpre">PRE</span><div><div class="bh-title mpre">Movilidad Pre-Sesión</div><div class="bh-sub">~8 min · activa antes de cargar · cadena anterior + cadera</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc mpre"><div class="xc-n">PRE 01</div><div class="xc-name">World's Greatest Stretch</div><div class="xc-meta mpre">5 reps c/lado</div><div class="xc-tip">Zancada → codo al suelo → rotación torácica. Lento y deliberado.</div><div class="xc-why">↑ ROM cadera + isquios antes de sentadilla</div><a href="https://www.youtube.com/watch?v=3HgAJFQvnWM" target="_blank" class="xl g">▶ Ver</a></div>
+      <div class="xc mpre"><div class="xc-n">PRE 02</div><div class="xc-name">90/90 Hip Switches</div><div class="xc-meta mpre">10 reps lentos</div><div class="xc-tip">Ambas caderas al suelo. Pausa en cada posición.</div><div class="xc-why">↑ Rotación de cadera · protege rodilla en sentadilla</div><a href="https://www.youtube.com/watch?v=ckLMKs3Ycoc" target="_blank" class="xl g">▶ Ver</a></div>
+      <div class="xc mpre"><div class="xc-n">PRE 03</div><div class="xc-name">Hip Flexor Lunge Stretch</div><div class="xc-meta mpre">60 seg c/lado</div><div class="xc-tip">Rodilla trasera en suelo, hunde la cadera. Brazos arriba.</div><div class="xc-why">↑ Psoas → mejor extensión en hip thrust</div><a href="https://www.youtube.com/watch?v=YQmpR9OHmGQ" target="_blank" class="xl g">▶ Ver</a></div>
+      <div class="xc mpre"><div class="xc-n">PRE 04</div><div class="xc-name">Glute Bridge Activation</div><div class="xc-meta mpre">2 × 15 reps · 2 seg pausa</div><div class="xc-tip">Activa el glúteo mayor antes del hip thrust.</div><div class="xc-why">↑ Conexión mente-músculo → más fuerza desde rep 1</div><a href="https://www.youtube.com/watch?v=wPM8icPu6H8" target="_blank" class="xl g">▶ Ver</a></div>
+      <div class="xc mpre"><div class="xc-n">PRE 05</div><div class="xc-name">Ankle Circles + Calf Raise</div><div class="xc-meta mpre">10 círculos + 15 elevaciones</div><div class="xc-tip">Prepara el tobillo para los talones abajo en sentadilla.</div><div class="xc-why">↑ Dorsiflexión → sentadilla más profunda y segura</div><a href="https://www.youtube.com/watch?v=sYHjfC9vBSQ" target="_blank" class="xl g">▶ Ver</a></div>
+    </div></div>
+  </div>
+
+  <!-- PLYO -->
+  <div class="block">
+    <div class="blk-head plyo"><span class="bh-icon">🔴</span><span class="bh-num plyo">1 · PLYO</span><div><div class="bh-title plyo">Plyometrics</div><div class="bh-sub">~8 min · activa el sistema nervioso · antes del peso</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc plyo"><div class="xc-n">PLYO 01</div><div class="xc-name">Box Jump (altura baja)</div><div class="xc-meta plyo">3 × 4 reps · descanso completo</div><div class="xc-tip">Semana 1: caja más baja de lo habitual. Aterriza suave. Baja caminando. Máxima intención.</div><div class="xc-why">↑ Reclutamiento neural → fuerza en sentadilla</div><div class="xc-prog">→ S2: misma caja más reps. S3: sube la altura.</div><a href="https://www.youtube.com/watch?v=52lE1ipFQpM" target="_blank" class="xl r">▶ Ver</a></div>
+      <div class="xc plyo"><div class="xc-n">PLYO 02</div><div class="xc-name">Squat Jump (peso corporal)</div><div class="xc-meta plyo">3 × 6 reps</div><div class="xc-tip">Baja a 90°, salta con máxima explosión, aterriza suave. Sin pausa abajo.</div><div class="xc-why">↑ Potencia de cuádriceps → sentadilla más fuerte</div><a href="https://www.youtube.com/watch?v=U4s4mEQ5VOU" target="_blank" class="xl r">▶ Ver</a></div>
+    </div></div>
+  </div>
+
+  <!-- POWER -->
+  <div class="block">
+    <div class="blk-head power"><span class="bh-icon">⚡</span><span class="bh-num power">2 · POWER</span><div><div class="bh-title power">Power</div><div class="bh-sub">~8 min · KB swing + glute bridge explosivo</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc power"><div class="xc-n">PWR 01</div><div class="xc-name">Kettlebell Swing</div><div class="xc-meta power">3 × 10 reps · KB ligera</div><div class="xc-tip">Bisagra de cadera explosiva. Cadera empuja la KB, NO los brazos. Glúteo aprieta arriba. Semana 1: KB muy ligera — prioriza la técnica.</div><div class="xc-why">↑ Potencia de cadera → hip thrust más explosivo</div><a href="https://www.youtube.com/watch?v=YSxHifyI6s8" target="_blank" class="xl o">▶ Ver</a></div>
+      <div class="xc power"><div class="xc-n">PWR 02</div><div class="xc-name">Glute Bridge Explosivo</div><div class="xc-meta power">3 × 10 reps · sube rápido</div><div class="xc-tip">Sube RÁPIDO, baja lento 3 seg. La fase concéntrica es explosiva. Peso corporal semana 1.</div><div class="xc-why">↑ Potencia glútea → hip thrust heavy más eficaz</div><a href="https://www.youtube.com/watch?v=Zp26q4BY5HE" target="_blank" class="xl o">▶ Ver</a></div>
+    </div></div>
+  </div>
+
+  <!-- STRENGTH -->
+  <div class="block">
+    <div class="blk-head str"><span class="bh-icon">🏋️</span><span class="bh-num str">3 · STRENGTH</span><div><div class="bh-title str">Strength / Hypertrophy — Cuádriceps & Glúteos</div><div class="bh-sub">~35 min · pesos al 65% · prioriza técnica</div></div></div>
+    <div class="blk-body">
+      <table class="st">
+        <thead><tr><th style="width:32%">Ejercicio</th><th>Series × Reps</th><th>Pesos (S1 / S2 / S3)</th><th>Objetivo</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="td-n">Smith Machine Squat</div><div class="td-t">Pies ligeramente adelantados. Rodillas afuera. ROM completo.</div></td>
+            <td><span class="td-s">4 × 10–12</span></td>
+            <td><div class="wprog"><div class="w-row"><span class="w-dot d1"></span><span class="w-val d1">27 kg</span></div><div class="w-row"><span class="w-dot d2"></span><span class="w-val d2">32 kg</span></div><div class="w-row"><span class="w-dot d3"></span><span class="w-val d3">40 kg</span></div></div></td>
+            <td><span class="prog reps">▲ +1–2 reps c/semana</span></td>
+          </tr>
+          <tr>
+            <td><div class="td-n">Leg Press</div><div class="td-t">ROM completo. No bloquees rodillas. Pies al ancho de hombros.</div></td>
+            <td><span class="td-s">4 × 12–15</span></td>
+            <td><div class="wprog"><div class="w-row"><span class="w-dot d1"></span><span class="w-val d1">70 kg</span></div><div class="w-row"><span class="w-dot d2"></span><span class="w-val d2">85 kg</span></div><div class="w-row"><span class="w-dot d3"></span><span class="w-val d3">100 kg</span></div></div></td>
+            <td><span class="prog reps">▲ +1–2 reps c/semana</span></td>
+          </tr>
+          <tr>
+            <td><div class="td-n">Bulgarian Split Squat</div><div class="td-t">Pie trasero elevado. Talón delantero abajo. Control total.</div></td>
+            <td><span class="td-s">3 × 10 c/lado</span></td>
+            <td><div class="wprog"><div class="w-row"><span class="w-dot d1"></span><span class="w-val d1">5–6 kg c/m</span></div><div class="w-row"><span class="w-dot d2"></span><span class="w-val d2">7 kg</span></div><div class="w-row"><span class="w-dot d3"></span><span class="w-val d3">8 kg</span></div></div></td>
+            <td><span class="prog reps">▲ progresión gradual</span></td>
+          </tr>
+          <tr>
+            <td><div class="td-n">Hip Thrust (barra)</div><div class="td-t">Extensión completa. 1 seg apriete arriba. Espalda alta en banco.</div></td>
+            <td><span class="td-s">4 × 12–15</span></td>
+            <td><div class="wprog"><div class="w-row"><span class="w-dot d1"></span><span class="w-val d1">55 kg</span></div><div class="w-row"><span class="w-dot d2"></span><span class="w-val d2">65 kg</span></div><div class="w-row"><span class="w-dot d3"></span><span class="w-val d3">80 kg</span></div></div></td>
+            <td><span class="prog reps">▲ +1–2 reps c/semana</span></td>
+          </tr>
+          <tr>
+            <td><div class="td-n">Leg Extension</div><div class="td-t">Tu técnica: 10 reps + hold. Semana 1: hold de 10 seg. S2: 12 seg. S3: 15 seg.</div></td>
+            <td><span class="td-s">3 × (10r + hold)</span></td>
+            <td><div class="wprog"><div class="w-row"><span class="w-dot d1"></span><span class="w-val d1">16 kg + 10s</span></div><div class="w-row"><span class="w-dot d2"></span><span class="w-val d2">20 kg + 12s</span></div><div class="w-row"><span class="w-dot d3"></span><span class="w-val d3">25 kg + 15s</span></div></div></td>
+            <td><span class="prog hold">⏱ +2 seg/semana</span></td>
+          </tr>
+          <tr>
+            <td><div class="td-n">Nordic Curl Negativo</div><div class="td-t">SOLO bajada 4–5 seg. Nunca saltar. Protección isquios para correr.</div></td>
+            <td><span class="td-s">3 × 5</span></td>
+            <td><div class="wprog"><div class="w-row"><span class="w-dot d1"></span><span class="w-val d1">Peso corporal</span></div></div></td>
+            <td><span class="prog maint">⚡ Siempre obligatorio</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ABS -->
+  <div class="block">
+    <div class="blk-head abs"><span class="bh-icon">🔥</span><span class="bh-num abs">4 · ABS</span><div><div class="bh-title abs">Abs — 5 Ejercicios</div><div class="bh-sub">~15 min · core profundo + estabilidad pélvica</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc abs"><div class="xc-n">ABS 01</div><div class="xc-name">Dead Bug</div><div class="xc-meta abs">3 × 10 c/lado (semana 1)</div><div class="xc-tip">Brazo + pierna opuestos. Lumbar PEGADA. Exhala en extensión. Empieza conservador.</div><div class="xc-why">Core profundo — tu ejercicio ancla semanal</div><div class="xc-prog">→ S1:10 · S2:12 · S3:14 reps</div><a href="https://www.youtube.com/watch?v=4XLEnwUr1d8" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc abs"><div class="xc-n">ABS 02</div><div class="xc-name">Hollow Body Hold</div><div class="xc-meta abs">3 × 20 seg (S1) · regresamos</div><div class="xc-tip">Forma de banana. Brazos arriba. Lumbar en el suelo. Anota el tiempo. Sin exigirte el máximo este semana.</div><div class="xc-why">Cadena anterior — llegaste a 40s, volverás en S3</div><div class="xc-prog">→ S1:20s · S2:30s · S3:40–45s</div><a href="https://www.youtube.com/watch?v=LlDNef_Ztsc" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc abs"><div class="xc-n">ABS 03</div><div class="xc-name">Leg Raise tumbada</div><div class="xc-meta abs">3 × 12 reps · 3 seg abajo</div><div class="xc-tip">Manos bajo caderas. Baja lento 3 seg. Lumbar no despega. Rango reducido si es necesario.</div><div class="xc-why">Abdomen inferior — zona clave, progresión gradual</div><div class="xc-prog">→ S1:12 · S2:14 · S3:15 reps</div><a href="https://www.youtube.com/watch?v=JB2oyawG9KI" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc abs"><div class="xc-n">ABS 04</div><div class="xc-name">Pallof Press (cable)</div><div class="xc-meta abs">3 × 10 c/lado</div><div class="xc-tip">Cable al pecho. Extiende sin girar el torso. 1 seg aguante. Peso ligero semana 1.</div><div class="xc-why">Anti-rotación — base de la estabilidad lumbar</div><div class="xc-prog">→ +1–2 reps c/semana</div><a href="https://www.youtube.com/watch?v=AH_QZLm_0-s" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc abs"><div class="xc-n">ABS 05</div><div class="xc-name">Glute Bridge March</div><div class="xc-meta abs">3 × 10 c/lado</div><div class="xc-tip">Puente arriba, levanta rodillas alternando. Caderas niveladas todo el tiempo.</div><div class="xc-why">Core + glúteo coordinados — ideal post-pierna</div><div class="xc-prog">→ S1:10 · S2:12 · S3:14 reps</div><a href="https://www.youtube.com/watch?v=VZsTqNDiKnc" target="_blank" class="xl b">▶ Ver</a></div>
+    </div></div>
+  </div>
+
+  <!-- CALISTENIA -->
+  <div class="block">
+    <div class="blk-head cali"><span class="bh-icon">💪</span><span class="bh-num cali">5 · CALI</span><div><div class="bh-title cali">Calistenia — Cadena Inferior</div><div class="bh-sub">Sin jalones · pierna y core · regreso gradual</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc cali"><div class="xc-n">CALI 01</div><div class="xc-name">Pistol Squat Asistido</div><div class="xc-meta cali">3 × 5 c/lado (S1 conservador)</div><div class="xc-tip">Agarre en TRX o poste. Baja a una pierna. Semana 1: menos reps, más control. No fuerces el rango.</div><div class="xc-why">Fuerza unilateral → hacia pistol libre</div><div class="xc-prog">→ S1:5 · S2:6 · S3:8 reps c/lado</div><a href="https://www.youtube.com/watch?v=vq5-vdGJc0I" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc cali"><div class="xc-n">CALI 02</div><div class="xc-name">Hollow Body Rock</div><div class="xc-meta cali">3 × 8 reps</div><div class="xc-tip">Desde hollow hold, mécete adelante/atrás. Semana 1: pocas reps, forma perfecta.</div><div class="xc-why">Progresión del hold estático</div><div class="xc-prog">→ S1:8 · S2:12 · S3:15 reps</div><a href="https://www.youtube.com/watch?v=9aDKnBpGpX4" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc cali"><div class="xc-n">CALI 03</div><div class="xc-name">Single-Leg Glute Bridge</div><div class="xc-meta cali">3 × 12 c/lado</div><div class="xc-tip">Una pierna en el aire. Empuja con el talón. 2 seg abajo. Caderas niveladas.</div><div class="xc-why">Glúteo unilateral — refuerza hip thrust</div><div class="xc-prog">→ S1:12 · S2:14 · S3:15 reps</div><a href="https://www.youtube.com/watch?v=XCEBdOgkj4M" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc cali"><div class="xc-n">CALI 04</div><div class="xc-name">Bear Crawl Hold</div><div class="xc-meta cali">3 × 20 seg (S1 · cuesta bastante)</div><div class="xc-tip">Rodillas 2 cm del suelo. Espalda plana. Semana 1: 20 seg es más que suficiente. No fuerces.</div><div class="xc-why">Core + hombro isométrico — progresa +5 seg/semana</div><div class="xc-prog">→ S1:20s · S2:25s · S3:30s</div><a href="https://www.youtube.com/watch?v=MXvC1MFivjE" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc cali"><div class="xc-n">CALI 05</div><div class="xc-name">Deep Squat Hold</div><div class="xc-meta cali">3 × 60 seg (sin problema ✓)</div><div class="xc-tip">Talones abajo. Codos empujan rodillas afuera. Este lo dominas — mantén el tiempo.</div><div class="xc-why">Movilidad funcional — tobillo + cadera</div><div class="xc-prog">→ S1:60s · S2:75s · S3:90s</div><a href="https://www.youtube.com/watch?v=ghm3NaJJZMg" target="_blank" class="xl b">▶ Ver</a></div>
+    </div></div>
+  </div>
+
+  <!-- MOB POST -->
+  <div class="block">
+    <div class="blk-head mpost"><span class="bh-icon">🌙</span><span class="bh-num mpost">POST</span><div><div class="bh-title mpost">Movilidad Post-Sesión (Yin)</div><div class="bh-sub">~15 min · holds largos · recuperación de cadena inferior</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc mpost"><div class="xc-n">POST 01</div><div class="xc-name">Pigeon Pose</div><div class="xc-meta mpost">3 min c/lado</div><div class="xc-tip">Deja que la gravedad lo haga. Respira en la tensión. No fuerces.</div><div class="xc-why">#1 longevidad de cadera · rotadores externos</div><a href="https://www.youtube.com/watch?v=0qzn5RkXuTU" target="_blank" class="xl t">▶ Ver</a></div>
+      <div class="xc mpost"><div class="xc-n">POST 02</div><div class="xc-name">Saddle Pose</div><div class="xc-meta mpost">2–3 min</div><div class="xc-tip">De rodillas entre talones. Cuádricep + psoas se liberan.</div><div class="xc-why">Cuádricep + psoas — deshace el día de sentadilla</div><a href="https://www.youtube.com/watch?v=LTcBEg8Pqto" target="_blank" class="xl t">▶ Ver</a></div>
+      <div class="xc mpost"><div class="xc-n">POST 03</div><div class="xc-name">Supine Hamstring Stretch</div><div class="xc-meta mpost">90 seg c/lado</div><div class="xc-tip">Tumbada, toalla alrededor del pie. Rodilla suave. Sin tirones.</div><div class="xc-why">Isquiotibiales — reduce lesión en running</div><a href="https://www.youtube.com/watch?v=7TGrtJMTG6c" target="_blank" class="xl t">▶ Ver</a></div>
+      <div class="xc mpost"><div class="xc-n">POST 04</div><div class="xc-name">Cat-Cow Vertebral</div><div class="xc-meta mpost">10 reps lentos</div><div class="xc-tip">Inhala en cow, exhala en cat. Vértebra a vértebra.</div><div class="xc-why">Salud espinal — esencial post-sentadilla</div><a href="https://www.youtube.com/watch?v=kqnua4rHVVA" target="_blank" class="xl t">▶ Ver</a></div>
+      <div class="xc mpost"><div class="xc-n">POST 05</div><div class="xc-name">Calf Stretch (pared)</div><div class="xc-meta mpost">90 seg c/pierna</div><div class="xc-tip">Pierna recta (gastrocnemio) + ligeramente doblada (sóleo). Los dos.</div><div class="xc-why">Tobillo — factor limitante más ignorado</div><a href="https://www.youtube.com/watch?v=MpGBnNJqMiw" target="_blank" class="xl t">▶ Ver</a></div>
+    </div></div>
+  </div>
+</div>
+
+<!-- ══ MARTES ══ -->
+<div class="panel" id="p-tue">
+  <div class="ph">
+    <div>
+      <div class="ph-title">MARTES<br>HOMBROS, PECHO & BÍCEPS</div>
+      <div class="ph-tags"><span class="ptag arm">Tren Superior</span><span class="ptag run">🏃 Run hoy</span><span class="ptag ret">Pull-up 65 kg banda (S1)</span></div>
+    </div>
+    <div class="ph-aside">Retrocedemos la pull-up a 65 kg esta semana — es temporal. La memoria muscular hace que vuelvas a 50 kg mucho más rápido que la primera vez.</div>
+  </div>
+
+  <div class="block">
+    <div class="blk-head mpre"><span class="bh-icon">🌅</span><span class="bh-num mpre">PRE</span><div><div class="bh-title mpre">Movilidad Pre — Hombro + Torácica</div><div class="bh-sub">~8 min</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc mpre"><div class="xc-n">PRE 01</div><div class="xc-name">Shoulder CARs</div><div class="xc-meta mpre">5 reps c/dirección</div><div class="xc-tip">Círculos articulares completos y lentos. Escápula controlada.</div><div class="xc-why">ROM de hombro completo · previene manguito</div><a href="https://www.youtube.com/watch?v=9M8ml_vZdVw" target="_blank" class="xl g">▶ Ver</a></div>
+      <div class="xc mpre"><div class="xc-n">PRE 02</div><div class="xc-name">Band Pull-Apart</div><div class="xc-meta mpre">3 × 15 reps</div><div class="xc-tip">Brazos rectos, separa la banda. Aprieta escápulas al final.</div><div class="xc-why">Deltoides posterior — previene impingement</div><a href="https://www.youtube.com/watch?v=TpDNAKaFnpM" target="_blank" class="xl g">▶ Ver</a></div>
+      <div class="xc mpre"><div class="xc-n">PRE 03</div><div class="xc-name">Thread the Needle</div><div class="xc-meta mpre">8 reps c/lado</div><div class="xc-tip">A cuatro patas, un brazo barre bajo el cuerpo. Rotación torácica.</div><div class="xc-why">Movilidad torácica — limitación más común</div><a href="https://www.youtube.com/watch?v=mwuKEjO7IOo" target="_blank" class="xl g">▶ Ver</a></div>
+      <div class="xc mpre"><div class="xc-n">PRE 04</div><div class="xc-name">Scapula Wall Slide</div><div class="xc-meta mpre">2 × 12 reps</div><div class="xc-tip">Espalda en pared, brazos en Y. Desliza arriba manteniendo contacto.</div><div class="xc-why">Trapecio inferior + serrato — estabilidad en press</div><a href="https://www.youtube.com/watch?v=MCsGkLGCEoA" target="_blank" class="xl g">▶ Ver</a></div>
+      <div class="xc mpre"><div class="xc-n">PRE 05</div><div class="xc-name">Wrist Circles + Extensión</div><div class="xc-meta mpre">10 círculos + 30 seg</div><div class="xc-tip">Círculos, luego manos en suelo dedos hacia atrás. Empuja suave.</div><div class="xc-why">Salud de muñeca en bench press y curl</div><a href="https://www.youtube.com/watch?v=mSZWSQSSEjE" target="_blank" class="xl g">▶ Ver</a></div>
+    </div></div>
+  </div>
+
+  <div class="block">
+    <div class="blk-head plyo"><span class="bh-icon">🔴</span><span class="bh-num plyo">1 · PLYO</span><div><div class="bh-title plyo">Plyometrics — Tren Superior</div><div class="bh-sub">~8 min · empuje explosivo ligero</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc plyo"><div class="xc-n">PLYO 01</div><div class="xc-name">Push-Up Negativo Explosivo</div><div class="xc-meta plyo">3 × 4 reps · empuja con máxima fuerza</div><div class="xc-tip">Desde posición de push-up (rodillas si necesitas). Baja normal, empuja hacia arriba con MÁXIMA fuerza intentando despegar las manos.</div><div class="xc-why">↑ Potencia de pecho → bench más fuerte</div><div class="xc-prog">→ S2: intenta despegar. S3: palmada.</div><a href="https://www.youtube.com/watch?v=BdLeRG-u5D8" target="_blank" class="xl r">▶ Ver</a></div>
+      <div class="xc plyo"><div class="xc-n">PLYO 02</div><div class="xc-name">MB Chest Pass (pared)</div><div class="xc-meta plyo">3 × 8 reps · MB ligera</div><div class="xc-tip">De pie frente a pared. Lanza el balón desde el pecho con máxima fuerza. Atrapa y repite.</div><div class="xc-why">↑ Potencia de press horizontal · activa pectorales</div><a href="https://www.youtube.com/watch?v=fVpRqkDl0zs" target="_blank" class="xl r">▶ Ver</a></div>
+    </div></div>
+  </div>
+
+  <div class="block">
+    <div class="blk-head power"><span class="bh-icon">⚡</span><span class="bh-num power">2 · POWER</span><div><div class="bh-title power">Power — Tren Superior</div><div class="bh-sub">~8 min · KB press + MB slam</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc power"><div class="xc-n">PWR 01</div><div class="xc-name">KB Single-Arm Press Explosivo</div><div class="xc-meta power">3 × 6 c/lado · KB ligera</div><div class="xc-tip">Press con KB de un brazo. Empuja RÁPIDO arriba, baja lento 3 seg. Core braced.</div><div class="xc-why">↑ Potencia de hombro → shoulder press más fuerte</div><a href="https://www.youtube.com/watch?v=LRDDRhEzPiE" target="_blank" class="xl o">▶ Ver</a></div>
+      <div class="xc power"><div class="xc-n">PWR 02</div><div class="xc-name">MB Overhead Slam</div><div class="xc-meta power">3 × 8 reps</div><div class="xc-tip">Brazos arriba, cuerpo extendido. Lanza al suelo con máxima fuerza.</div><div class="xc-why">↑ Potencia de cadena anterior + core</div><a href="https://www.youtube.com/watch?v=zYMfH7daBpE" target="_blank" class="xl o">▶ Ver</a></div>
+    </div></div>
+  </div>
+
+  <div class="block">
+    <div class="blk-head str"><span class="bh-icon">🏋️</span><span class="bh-num str">3 · STRENGTH</span><div><div class="bh-title str">Strength — Hombros, Pecho & Bíceps</div><div class="bh-sub">~35 min · pesos al 65% semana 1</div></div></div>
+    <div class="blk-body">
+      <table class="st">
+        <thead><tr><th style="width:32%">Ejercicio</th><th>Series × Reps</th><th>Pesos (S1 / S2 / S3)</th><th>Objetivo</th></tr></thead>
+        <tbody>
+          <tr><td><div class="td-n">Press de hombros (mancuernas)</div><div class="td-t">45° en codos para proteger manguito. Descenso controlado.</div></td><td><span class="td-s">4 × 8–12</span></td><td><div class="wprog"><div class="w-row"><span class="w-dot d1"></span><span class="w-val d1">7 kg c/m</span></div><div class="w-row"><span class="w-dot d2"></span><span class="w-val d2">8.5 kg</span></div><div class="w-row"><span class="w-dot d3"></span><span class="w-val d3">10 kg</span></div></div></td><td><span class="prog reps">▲ +1–2 reps</span></td></tr>
+          <tr><td><div class="td-n">Elevaciones laterales</div><div class="td-t">Lidera con el codo. Ligera inclinación adelante en la cima.</div></td><td><span class="td-s">4 × 12–15</span></td><td><div class="wprog"><div class="w-row"><span class="w-dot d1"></span><span class="w-val d1">4 kg c/m</span></div><div class="w-row"><span class="w-dot d2"></span><span class="w-val d2">5 kg</span></div><div class="w-row"><span class="w-dot d3"></span><span class="w-val d3">6 kg</span></div></div></td><td><span class="prog reps">▲ +2 reps</span></td></tr>
+          <tr><td><div class="td-n">Press de banca (barra)</div><div class="td-t">Escápulas retraídas. Pies planos. Descenso controlado al pecho.</div></td><td><span class="td-s">4 × 8–12</span></td><td><div class="wprog"><div class="w-row"><span class="w-dot d1"></span><span class="w-val d1">22 kg</span></div><div class="w-row"><span class="w-dot d2"></span><span class="w-val d2">27 kg</span></div><div class="w-row"><span class="w-dot d3"></span><span class="w-val d3">35 kg</span></div></div></td><td><span class="prog reps">▲ +1–2 reps</span></td></tr>
+          <tr><td><div class="td-n">Pec Deck</div><div class="td-t">Estiramiento completo en apertura. 2 seg excéntrico.</div></td><td><span class="td-s">3 × 12–15</span></td><td><div class="wprog"><div class="w-row"><span class="w-dot d1"></span><span class="w-val d1">~65%</span></div><div class="w-row"><span class="w-dot d2"></span><span class="w-val d2">~80%</span></div><div class="w-row"><span class="w-dot d3"></span><span class="w-val d3">Habitual</span></div></div></td><td><span class="prog reps">▲ +2 reps</span></td></tr>
+          <tr><td><div class="td-n">Curl barra Z</div><div class="td-t">Sin balanceo. ROM completo. Supinación arriba.</div></td><td><span class="td-s">3 × 10–12</span></td><td><div class="wprog"><div class="w-row"><span class="w-dot d1"></span><span class="w-val d1">Solo barra</span></div><div class="w-row"><span class="w-dot d2"></span><span class="w-val d2">+ 2.5 kg</span></div><div class="w-row"><span class="w-dot d3"></span><span class="w-val d3">+ 5 kg</span></div></div></td><td><span class="prog reps">▲ +1–2 reps</span></td></tr>
+          <tr><td><div class="td-n">Curl martillo</div><div class="td-t">Agarre neutro. Codos fijos. Braquial + braquiorradial.</div></td><td><span class="td-s">3 × 10–12</span></td><td><div class="wprog"><div class="w-row"><span class="w-dot d1"></span><span class="w-val d1">~65%</span></div><div class="w-row"><span class="w-dot d2"></span><span class="w-val d2">~80%</span></div><div class="w-row"><span class="w-dot d3"></span><span class="w-val d3">Habitual</span></div></div></td><td><span class="prog reps">▲ +1–2 reps</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="blk-head abs"><span class="bh-icon">🔥</span><span class="bh-num abs">4 · ABS</span><div><div class="bh-title abs">Abs — 5 Ejercicios</div><div class="bh-sub">~15 min</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc abs"><div class="xc-n">ABS 01</div><div class="xc-name">Dead Bug</div><div class="xc-meta abs">3 × 10 c/lado</div><div class="xc-tip">Lumbar pegada. Exhala en extensión. Ancla de la semana.</div><div class="xc-why">Core profundo — base de cualquier press estable</div><a href="https://www.youtube.com/watch?v=4XLEnwUr1d8" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc abs"><div class="xc-n">ABS 02</div><div class="xc-name">Hollow Body Hold</div><div class="xc-meta abs">3 × 20 seg</div><div class="xc-tip">Anota el tiempo. Compara con lunes. Progresión dentro de la semana.</div><div class="xc-why">Cadena anterior — prerequisito del pull-up</div><a href="https://www.youtube.com/watch?v=LlDNef_Ztsc" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc abs"><div class="xc-n">ABS 03</div><div class="xc-name">Crunch bicicleta (lento)</div><div class="xc-meta abs">3 × 16 reps</div><div class="xc-tip">Codo a rodilla contraria. Pierna contraria larga. LENTO. Sin inercia.</div><div class="xc-why">Oblicuos + recto simultáneamente</div><a href="https://www.youtube.com/watch?v=9FGilxCbdz8" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc abs"><div class="xc-n">ABS 04</div><div class="xc-name">Pallof Press</div><div class="xc-meta abs">3 × 10 c/lado</div><div class="xc-tip">Sin girar al extender. El cable quiere rotarte — resiste.</div><div class="xc-why">Anti-rotación — protege hombro en press overhead</div><a href="https://www.youtube.com/watch?v=AH_QZLm_0-s" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc abs"><div class="xc-n">ABS 05</div><div class="xc-name">Plank RKC</div><div class="xc-meta abs">3 × 15 seg tensión máxima</div><div class="xc-tip">Aprieta TODO: puños, glúteos, cuádriceps, core. 15s máximos &gt; 60s pasivos.</div><div class="xc-why">Reclutamiento neural completo</div><a href="https://www.youtube.com/watch?v=pSHjTRCQxIw" target="_blank" class="xl b">▶ Ver</a></div>
+    </div></div>
+  </div>
+
+  <div class="block">
+    <div class="blk-head cali"><span class="bh-icon">💪</span><span class="bh-num cali">5 · CALI</span><div><div class="bh-title cali">Calistenia — Tren Superior</div><div class="bh-sub">Pull-up 65 kg banda · regreso semana 1</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc cali"><div class="xc-n">CALI 01</div><div class="xc-name">Pull-Up Asistida (65 kg banda)</div><div class="xc-meta cali">4 × máx reps · S1 regreso</div><div class="xc-tip">65 kg de asistencia esta semana. Es temporal. Registra las reps. S2: 60 kg. S3: 50 kg.</div><div class="xc-why">Muscle memory — vuelves mucho más rápido que la primera vez</div><div class="xc-prog">→ S1:65kg · S2:60kg · S3:50kg banda</div><a href="https://www.youtube.com/watch?v=Hdc7Mw6BIEE" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc cali"><div class="xc-n">CALI 02</div><div class="xc-name">Scapula Pull-Up</div><div class="xc-meta cali">3 × 8 reps</div><div class="xc-tip">Cuelga. Deprime + retrae escápulas SIN doblar codos. Movimiento pequeño, muy poderoso.</div><div class="xc-why">Activa lat correctamente — prerequisito del pull-up</div><a href="https://www.youtube.com/watch?v=oBOd_9UvEzU" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc cali"><div class="xc-n">CALI 03</div><div class="xc-name">Push-Up Negativo (4 seg)</div><div class="xc-meta cali">3 × 5 reps</div><div class="xc-tip">Posición completa. Baja 4 segundos. Semana 1: menos reps, máxima calidad.</div><div class="xc-why">Fuerza excéntrica — camino más rápido al push-up</div><a href="https://www.youtube.com/watch?v=IODxDxX7oi4" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc cali"><div class="xc-n">CALI 04</div><div class="xc-name">Push-Up Inclinado (banco)</div><div class="xc-meta cali">3 × 10 reps</div><div class="xc-tip">Manos en banco. ROM completo. Semana 1: conservador. S3: baja el ángulo.</div><div class="xc-why">Progresión gradual hacia push-up en suelo</div><div class="xc-prog">→ S1:10 · S2:13 · S3:15 reps</div><a href="https://www.youtube.com/watch?v=cfns5HFMu4U" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc cali"><div class="xc-n">CALI 05</div><div class="xc-name">Dip en banco</div><div class="xc-meta cali">3 × 10 reps</div><div class="xc-tip">Inclinación ligera adelante para pecho. 90° en codos. Controlado.</div><div class="xc-why">Fuerza de empuje tren superior</div><div class="xc-prog">→ S1:10 · S2:12 · S3:14 reps</div><a href="https://www.youtube.com/watch?v=sM4SHFSjMQ0" target="_blank" class="xl b">▶ Ver</a></div>
+    </div></div>
+  </div>
+
+  <div class="block">
+    <div class="blk-head mpost"><span class="bh-icon">🌙</span><span class="bh-num mpost">POST</span><div><div class="bh-title mpost">Movilidad Post + Post-Run</div><div class="bh-sub">~12 min · hombro + pecho + cadena inferior post-carrera</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc mpost"><div class="xc-n">POST 01</div><div class="xc-name">Chest Opener Hold</div><div class="xc-meta mpost">2 × 60 seg</div><div class="xc-tip">Manos detrás, abre el pecho. Respira profundo.</div><div class="xc-why">Deshace cadena anterior tensionada por press</div><a href="https://www.youtube.com/watch?v=MNdQ8PKV6lQ" target="_blank" class="xl t">▶ Ver</a></div>
+      <div class="xc mpost"><div class="xc-n">POST 02</div><div class="xc-name">Cross-body Shoulder</div><div class="xc-meta mpost">60 seg c/lado</div><div class="xc-tip">Brazo cruzado al pecho. No gires el torso.</div><div class="xc-why">Deltoides posterior + manguito</div><a href="https://www.youtube.com/watch?v=0Q3Q4Ys0GJs" target="_blank" class="xl t">▶ Ver</a></div>
+      <div class="xc mpost"><div class="xc-n">POST 03</div><div class="xc-name">Child's Pose lateral</div><div class="xc-meta mpost">90 seg c/lado</div><div class="xc-tip">Camina las manos a un lado. Estira el lat.</div><div class="xc-why">Lat + hombro — los más trabajados hoy</div><a href="https://www.youtube.com/watch?v=1HCflSFkRig" target="_blank" class="xl t">▶ Ver</a></div>
+      <div class="xc mpost"><div class="xc-n">POST 04</div><div class="xc-name">Pigeon Pose (post-run)</div><div class="xc-meta mpost">3 min c/lado</div><div class="xc-tip">Obligatorio post-carrera. Rotadores de cadera tensos.</div><div class="xc-why">Post-running esencial — rotadores externos</div><a href="https://www.youtube.com/watch?v=0qzn5RkXuTU" target="_blank" class="xl t">▶ Ver</a></div>
+      <div class="xc mpost"><div class="xc-n">POST 05</div><div class="xc-name">Calf Stretch (pared)</div><div class="xc-meta mpost">90 seg c/pierna</div><div class="xc-tip">Gastrocnemio + sóleo. Los dos. Post-run siempre.</div><div class="xc-why">Gemelo → previene fascitis plantar</div><a href="https://www.youtube.com/watch?v=MpGBnNJqMiw" target="_blank" class="xl t">▶ Ver</a></div>
+    </div></div>
+  </div>
+
+  <div class="block">
+    <div class="blk-head cardio"><span class="bh-icon">🏃</span><span class="bh-num cardio">6 · CARDIO</span><div><div class="bh-title cardio">Cardio — Runna App</div><div class="bh-sub">Después del gym · piernas frescas de sesión de brazo</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc cardio"><div class="xc-n">RUN</div><div class="xc-name">Sesión Runna</div><div class="xc-meta cardio">Sigue el plan prescrito</div><div class="xc-tip">Semana 1: si Runna pone algo intenso, baja al 80% del esfuerzo. El cuerpo está readaptándose.</div><div class="xc-why">Base aeróbica — el plan de Runna gestiona la carga</div></div>
+    </div></div>
+  </div>
+</div>
+
+<!-- ══ MIÉRCOLES ══ -->
+<div class="panel" id="p-wed">
+  <div class="ph">
+    <div>
+      <div class="ph-title">MIÉRCOLES<br>YOGA + CALISTENIA</div>
+      <div class="ph-tags"><span class="ptag yoga">Yoga Yin</span><span class="ptag note">5 series pull-up · día de impulso</span><span class="ptag ret">Pull-up 65 kg S1</span></div>
+    </div>
+    <div class="ph-aside">Día de recuperación activa. Más volumen en pull-up que los días de gym (5 series). Yoga Yin largo. El cuerpo consolida la readaptación aquí.</div>
+  </div>
+
+  <div class="block">
+    <div class="blk-head mpre"><span class="bh-icon">🌅</span><span class="bh-num mpre">PRE</span><div><div class="bh-title mpre">Movilidad Pre — Full Body Flow</div><div class="bh-sub">~12 min · sin rush</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc mpre"><div class="xc-n">PRE 01</div><div class="xc-name">World's Greatest Stretch</div><div class="xc-meta mpre">6 reps c/lado · 3 seg pausa</div><div class="xc-tip">Hoy más lento que los días de gym. El mejor calentamiento global que existe.</div><div class="xc-why">Apertura completa del cuerpo para el yoga</div><a href="https://www.youtube.com/watch?v=3HgAJFQvnWM" target="_blank" class="xl g">▶ Ver</a></div>
+      <div class="xc mpre"><div class="xc-n">PRE 02</div><div class="xc-name">Shoulder CARs</div><div class="xc-meta mpre">6 reps c/dirección</div><div class="xc-tip">Más reps que días de gym. Calidad articular completa para las skills.</div><div class="xc-why">Salud de hombro para pull-up</div><a href="https://www.youtube.com/watch?v=9M8ml_vZdVw" target="_blank" class="xl g">▶ Ver</a></div>
+      <div class="xc mpre"><div class="xc-n">PRE 03</div><div class="xc-name">Cat-Cow con respiración</div><div class="xc-meta mpre">10 reps · 4 seg c/fase</div><div class="xc-tip">Inhala 4 seg en cow, exhala 4 seg en cat. Vértebra a vértebra.</div><div class="xc-why">Columna vertebral — lo más importante para tu espalda</div><a href="https://www.youtube.com/watch?v=kqnua4rHVVA" target="_blank" class="xl g">▶ Ver</a></div>
+      <div class="xc mpre"><div class="xc-n">PRE 04</div><div class="xc-name">Hip CARs</div><div class="xc-meta mpre">5 reps c/dirección/lado</div><div class="xc-tip">De pie, rodilla al pecho y círculo grande de cadera. Control total.</div><div class="xc-why">ROM completo de cadera — el más ignorado</div><a href="https://www.youtube.com/watch?v=E0NtMo0b8To" target="_blank" class="xl g">▶ Ver</a></div>
+      <div class="xc mpre"><div class="xc-n">PRE 05</div><div class="xc-name">Thoracic Extension (foam roller)</div><div class="xc-meta mpre">2 min · T4 a T10</div><div class="xc-tip">Perpendicular a la columna torácica. Rueda segmento a segmento.</div><div class="xc-why">Extensión torácica — limitación más común en adultos</div><a href="https://www.youtube.com/watch?v=d0HEOkdxhGw" target="_blank" class="xl g">▶ Ver</a></div>
+    </div></div>
+  </div>
+
+  <div class="block">
+    <div class="blk-head plyo"><span class="bh-icon">🔴</span><span class="bh-num plyo">1 · PLYO</span><div><div class="bh-title plyo">Plyometrics (ligero — sin gym)</div><div class="bh-sub">~6 min · corporales · día de recuperación</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc plyo"><div class="xc-n">PLYO 01</div><div class="xc-name">Squat Jump suave</div><div class="xc-meta plyo">2 × 6 reps</div><div class="xc-tip">Versión ligera. Mantén el patrón, no empujes la intensidad hoy.</div><div class="xc-why">Mantiene adaptación neuromuscular sin añadir fatiga</div><a href="https://www.youtube.com/watch?v=U4s4mEQ5VOU" target="_blank" class="xl r">▶ Ver</a></div>
+      <div class="xc plyo"><div class="xc-n">PLYO 02</div><div class="xc-name">Explosive Push-Up (rodillas)</div><div class="xc-meta plyo">2 × 5 reps</div><div class="xc-tip">Desde rodillas. Empuja con máxima explosión. Baja controlado.</div><div class="xc-why">Potencia de pecho sin fatiga de gym</div><a href="https://www.youtube.com/watch?v=IODxDxX7oi4" target="_blank" class="xl r">▶ Ver</a></div>
+    </div></div>
+  </div>
+
+  <div class="block">
+    <div class="blk-head power"><span class="bh-icon">⚡</span><span class="bh-num power">2 · POWER</span><div><div class="bh-title power">Power — Calistenia Impulso</div><div class="bh-sub">5 series pull-up · más volumen que mar/vie · benchmark</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc power"><div class="xc-n">PWR 01</div><div class="xc-name">Pull-Up Asistida (65 kg banda)</div><div class="xc-meta power">5 × máx reps (día de volumen)</div><div class="xc-tip">Hoy 5 series — más volumen que martes. Registra reps de cada serie. La diferencia martes vs miércoles es tu adaptación de 24h.</div><div class="xc-why">Volumen extra = adaptación más rápida en pull-up</div><div class="xc-prog">→ S1:65kg · S2:60kg · S3:50kg</div><a href="https://www.youtube.com/watch?v=Hdc7Mw6BIEE" target="_blank" class="xl o">▶ Ver</a></div>
+      <div class="xc power"><div class="xc-n">PWR 02</div><div class="xc-name">Scapula Pull-Up</div><div class="xc-meta power">4 × 10 reps · explosivo</div><div class="xc-tip">Depresión escapular con más velocidad que martes.</div><div class="xc-why">Calidad de activación — subestimado del pull-up</div><a href="https://www.youtube.com/watch?v=oBOd_9UvEzU" target="_blank" class="xl o">▶ Ver</a></div>
+      <div class="xc power"><div class="xc-n">PWR 03</div><div class="xc-name">Push-Up Benchmark</div><div class="xc-meta power">3 × máx reps limpias</div><div class="xc-tip">Tu referencia semanal de empuje. Anota el número exacto. Supéralo el miércoles siguiente.</div><div class="xc-why">Métrica semanal de progresión — el número que no miente</div><div class="xc-prog">→ Registra HOY. Semana siguiente: +1</div><a href="https://www.youtube.com/watch?v=IODxDxX7oi4" target="_blank" class="xl o">▶ Ver</a></div>
+    </div></div>
+  </div>
+
+  <div class="block">
+    <div class="blk-head abs"><span class="bh-icon">🔥</span><span class="bh-num abs">4 · ABS</span><div><div class="bh-title abs">Abs — 5 Ejercicios (máximo de semana)</div><div class="bh-sub">~15 min · holds más largos · día de impulso de core</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc abs"><div class="xc-n">ABS 01</div><div class="xc-name">Dead Bug</div><div class="xc-meta abs">3 × 12 c/lado (+2 vs lunes)</div><div class="xc-tip">Progresión dentro de la semana. ¿Misma calidad con más reps?</div><div class="xc-why">Core profundo — PR semanal de este ejercicio</div><a href="https://www.youtube.com/watch?v=4XLEnwUr1d8" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc abs"><div class="xc-n">ABS 02</div><div class="xc-name">Hollow Body Hold</div><div class="xc-meta abs">3 × 25 seg (máximo S1)</div><div class="xc-tip">Hold máximo de esta semana. Anota el tiempo. Semana 2: 35 seg.</div><div class="xc-why">Tu progreso más visible semana a semana</div><a href="https://www.youtube.com/watch?v=LlDNef_Ztsc" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc abs"><div class="xc-n">ABS 03</div><div class="xc-name">Side Plank</div><div class="xc-meta abs">3 × 25 seg c/lado</div><div class="xc-tip">Cadera arriba. Cuerpo recto. Respira con normalidad. S1 conservador.</div><div class="xc-why">Estabilidad lateral — protege columna</div><div class="xc-prog">→ S1:25s · S2:30s · S3:35s</div><a href="https://www.youtube.com/watch?v=_6vjo5yFo1U" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc abs"><div class="xc-n">ABS 04</div><div class="xc-name">Leg Raise</div><div class="xc-meta abs">3 × 12 reps · 3 seg abajo</div><div class="xc-tip">Lumbar pegada. Baja lento. La última rep = la primera.</div><div class="xc-why">Abdomen inferior — zona clave</div><a href="https://www.youtube.com/watch?v=JB2oyawG9KI" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc abs"><div class="xc-n">ABS 05</div><div class="xc-name">Bear Crawl Hold</div><div class="xc-meta abs">3 × 20 seg</div><div class="xc-tip">Rodillas 2 cm. Espalda plana. Hombros sobre muñecas.</div><div class="xc-why">Core + hombro — isométrico completo</div><a href="https://www.youtube.com/watch?v=MXvC1MFivjE" target="_blank" class="xl b">▶ Ver</a></div>
+    </div></div>
+  </div>
+
+  <div class="block">
+    <div class="blk-head yoga"><span class="bh-icon">🧘</span><span class="bh-num yoga">5 · YOGA</span><div><div class="bh-title yoga">Yoga Yin — Sesión Larga</div><div class="bh-sub">~35 min · holds largos · recuperación profunda · readaptación</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc yoga"><div class="xc-n">YIN 01</div><div class="xc-name">Dragon Pose</div><div class="xc-meta yoga">3 min c/lado</div><div class="xc-tip">Zancada profunda, rodilla trasera en suelo. Hunde la cadera. Brazos al suelo.</div><div class="xc-why">Psoas + flexores — especialmente tensos tras la mudanza</div><a href="https://www.youtube.com/watch?v=7oGbZN8vQLk" target="_blank" class="xl p">▶ Ver</a></div>
+      <div class="xc yoga"><div class="xc-n">YIN 02</div><div class="xc-name">Pigeon Pose</div><div class="xc-meta yoga">4 min c/lado</div><div class="xc-tip">Más tiempo que otros días. Deja que el cuerpo suelte la tensión acumulada.</div><div class="xc-why">Rotadores externos — pose más respaldada para longevidad</div><a href="https://www.youtube.com/watch?v=0qzn5RkXuTU" target="_blank" class="xl p">▶ Ver</a></div>
+      <div class="xc yoga"><div class="xc-n">YIN 03</div><div class="xc-name">Caterpillar (Yin)</div><div class="xc-meta yoga">4–5 min</div><div class="xc-tip">Piernas largas, dobla adelante. Espalda redondeada OK en yin. Deja ir.</div><div class="xc-why">Cadena posterior completa — columna, isquios, pantorrillas</div><a href="https://www.youtube.com/watch?v=5a3xtdC5_AM" target="_blank" class="xl p">▶ Ver</a></div>
+      <div class="xc yoga"><div class="xc-n">YIN 04</div><div class="xc-name">Butterfly (Yin)</div><div class="xc-meta yoga">3–4 min</div><div class="xc-tip">Plantas juntas, dobla adelante. No empujes rodillas. Solo deja caer.</div><div class="xc-why">Aductores + cadera interna — la apertura más olvidada</div><a href="https://www.youtube.com/watch?v=CsuB7lOZrZ4" target="_blank" class="xl p">▶ Ver</a></div>
+      <div class="xc yoga"><div class="xc-n">YIN 05</div><div class="xc-name">Supine Twist</div><div class="xc-meta yoga">2 min c/lado</div><div class="xc-tip">Tumbada, rodilla al pecho y cruza al lado. Brazo extendido. Mira al techo.</div><div class="xc-why">Descompresión de vértebras lumbares</div><a href="https://www.youtube.com/watch?v=3YCuvBcCkNI" target="_blank" class="xl p">▶ Ver</a></div>
+      <div class="xc yoga"><div class="xc-n">CIERRE</div><div class="xc-name">Savasana</div><div class="xc-meta yoga">6–8 min</div><div class="xc-tip">Quietud total. Escanea cuerpo de pies a cabeza. Nueva ciudad, nuevo comienzo.</div><div class="xc-why">Parasimpático — aquí se consolida la readaptación</div><a href="https://www.youtube.com/watch?v=1VYlOKUdylM" target="_blank" class="xl p">▶ Ver</a></div>
+    </div></div>
+  </div>
+</div>
+
+<!-- ══ JUEVES ══ -->
+<div class="panel" id="p-thu">
+  <div class="ph">
+    <div>
+      <div class="ph-title">JUEVES<br>ISQUIOTIBIALES & GLÚTEOS</div>
+      <div class="ph-tags"><span class="ptag leg">Pierna B</span><span class="ptag ret">Deadlift 40 kg S1 · Nordic obligatorio</span></div>
+    </div>
+    <div class="ph-aside">Deadlift vuelve a 40 kg esta semana. Puede sentirse fácil — bien. El objetivo es readaptar el patrón de movimiento, no la carga. S2: 50 kg. S3: 60 kg.</div>
+  </div>
+
+  <div class="block">
+    <div class="blk-head mpre"><span class="bh-icon">🌅</span><span class="bh-num mpre">PRE</span><div><div class="bh-title mpre">Movilidad Pre — Cadena Posterior</div><div class="bh-sub">~10 min · isquios + cadera + bisagra</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc mpre"><div class="xc-n">PRE 01</div><div class="xc-name">World's Greatest Stretch</div><div class="xc-meta mpre">5 reps c/lado · 2 seg pausa</div><div class="xc-tip">Enfócate en el isquiotibial trasero.</div><div class="xc-why">Apertura isquiotibial antes del deadlift</div><a href="https://www.youtube.com/watch?v=3HgAJFQvnWM" target="_blank" class="xl g">▶ Ver</a></div>
+      <div class="xc mpre"><div class="xc-n">PRE 02</div><div class="xc-name">Hip Hinge con palo</div><div class="xc-meta mpre">10–12 reps</div><div class="xc-tip">Palo en espalda (cabeza, torácica, sacro). Bisagra sin perder los 3 puntos.</div><div class="xc-why">Patrón de bisagra perfecto — esencial para deadlift</div><a href="https://www.youtube.com/watch?v=YgJ5ZEn67tk" target="_blank" class="xl g">▶ Ver</a></div>
+      <div class="xc mpre"><div class="xc-n">PRE 03</div><div class="xc-name">Supine Hamstring Floss</div><div class="xc-meta mpre">8 reps c/pierna</div><div class="xc-tip">Tumbada, rodilla al pecho y extiende al techo. Activa nervio ciático suavemente.</div><div class="xc-why">Movilidad neural — reduce tirantez en deadlift</div><a href="https://www.youtube.com/watch?v=uMFrKgRkd4M" target="_blank" class="xl g">▶ Ver</a></div>
+      <div class="xc mpre"><div class="xc-n">PRE 04</div><div class="xc-name">Glute Bridge Activation</div><div class="xc-meta mpre">2 × 15 reps</div><div class="xc-tip">2 seg pausa arriba. Activa glúteo mayor antes del hip thrust.</div><div class="xc-why">Conexión mente-músculo del glúteo</div><a href="https://www.youtube.com/watch?v=wPM8icPu6H8" target="_blank" class="xl g">▶ Ver</a></div>
+      <div class="xc mpre"><div class="xc-n">PRE 05</div><div class="xc-name">90/90 Hip Switches</div><div class="xc-meta mpre">10 reps lentos</div><div class="xc-tip">Las dos caderas al suelo en cada switch. Rotación interna.</div><div class="xc-why">Rotación interna de cadera — clave para hip thrust</div><a href="https://www.youtube.com/watch?v=ckLMKs3Ycoc" target="_blank" class="xl g">▶ Ver</a></div>
+    </div></div>
+  </div>
+
+  <div class="block">
+    <div class="blk-head plyo"><span class="bh-icon">🔴</span><span class="bh-num plyo">1 · PLYO</span><div><div class="bh-title plyo">Plyometrics — Cadena Posterior</div><div class="bh-sub">~8 min · potencia de cadera antes del peso</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc plyo"><div class="xc-n">PLYO 01</div><div class="xc-name">Broad Jump</div><div class="xc-meta plyo">3 × 4 reps · mide distancia</div><div class="xc-tip">Brazos balancean adelante. Aterriza con cadera atrás. Registra la distancia media.</div><div class="xc-why">↑ Potencia de cadena posterior — glúteo máx</div><div class="xc-prog">→ Registra la distancia cada semana</div><a href="https://www.youtube.com/watch?v=MsN6obAGFtg" target="_blank" class="xl r">▶ Ver</a></div>
+      <div class="xc plyo"><div class="xc-n">PLYO 02</div><div class="xc-name">Glute Bridge Explosivo</div><div class="xc-meta plyo">3 × 8 reps · sube rápido</div><div class="xc-tip">Sube RÁPIDO, baja lento. Activa el glúteo antes del hip thrust pesado.</div><div class="xc-why">↑ Potencia de cadera → hip thrust más eficaz</div><a href="https://www.youtube.com/watch?v=Zp26q4BY5HE" target="_blank" class="xl r">▶ Ver</a></div>
+    </div></div>
+  </div>
+
+  <div class="block">
+    <div class="blk-head power"><span class="bh-icon">⚡</span><span class="bh-num power">2 · POWER</span><div><div class="bh-title power">Power — Cadena Posterior</div><div class="bh-sub">~8 min · KB swing + KB RDL explosivo</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc power"><div class="xc-n">PWR 01</div><div class="xc-name">Kettlebell Swing</div><div class="xc-meta power">3 × 10 reps · KB ligera</div><div class="xc-tip">Bisagra de cadera explosiva. Cadera empuja la KB. Glúteo aprieta arriba. Técnica sobre carga.</div><div class="xc-why">↑ Potencia de cadera → hip thrust + deadlift</div><a href="https://www.youtube.com/watch?v=YSxHifyI6s8" target="_blank" class="xl o">▶ Ver</a></div>
+      <div class="xc power"><div class="xc-n">PWR 02</div><div class="xc-name">KB RDL Explosivo</div><div class="xc-meta power">3 × 6 reps · KB ligera</div><div class="xc-tip">Bisagra rápida al subir, lenta al bajar 3 seg. Glúteos aprietan al tope.</div><div class="xc-why">↑ Potencia de isquios/glúteo → activa patrón deadlift</div><a href="https://www.youtube.com/watch?v=lJ3QwaXNJMw" target="_blank" class="xl o">▶ Ver</a></div>
+    </div></div>
+  </div>
+
+  <div class="block">
+    <div class="blk-head str"><span class="bh-icon">🏋️</span><span class="bh-num str">3 · STRENGTH</span><div><div class="bh-title str">Strength — Isquiotibiales & Glúteos</div><div class="bh-sub">Deadlift 40 kg S1 · Hip Thrust 55 kg · progresión 3 semanas</div></div></div>
+    <div class="blk-body">
+      <table class="st">
+        <thead><tr><th style="width:32%">Ejercicio</th><th>Series × Reps</th><th>Pesos (S1 / S2 / S3)</th><th>Objetivo</th></tr></thead>
+        <tbody>
+          <tr><td><div class="td-n">Deadlift Convencional</div><div class="td-t">Bisagra de cadera. Barra cerca del cuerpo. Espalda NEUTRA siempre. S1 fácil — bien.</div></td><td><span class="td-s">4 × 6–8</span></td><td><div class="wprog"><div class="w-row"><span class="w-dot d1"></span><span class="w-val d1">40 kg</span></div><div class="w-row"><span class="w-dot d2"></span><span class="w-val d2">50 kg</span></div><div class="w-row"><span class="w-dot d3"></span><span class="w-val d3">60 kg</span></div></div></td><td><span class="prog reps">▲ +1 rep c/semana</span></td></tr>
+          <tr><td><div class="td-n">Hip Thrust (barra)</div><div class="td-t">Extensión completa. 1 seg apriete arriba. Espalda alta en banco.</div></td><td><span class="td-s">4 × 12–15</span></td><td><div class="wprog"><div class="w-row"><span class="w-dot d1"></span><span class="w-val d1">55 kg</span></div><div class="w-row"><span class="w-dot d2"></span><span class="w-val d2">65 kg</span></div><div class="w-row"><span class="w-dot d3"></span><span class="w-val d3">80 kg</span></div></div></td><td><span class="prog reps">▲ +1–2 reps</span></td></tr>
+          <tr><td><div class="td-n">Leg Curl tumbada</div><div class="td-t">3 seg excéntrico bajando. Ahí está el resultado real.</div></td><td><span class="td-s">4 × 10–12</span></td><td><div class="wprog"><div class="w-row"><span class="w-dot d1"></span><span class="w-val d1">16 kg</span></div><div class="w-row"><span class="w-dot d2"></span><span class="w-val d2">20 kg</span></div><div class="w-row"><span class="w-dot d3"></span><span class="w-val d3">25 kg</span></div></div></td><td><span class="prog reps">▲ +1–2 reps</span></td></tr>
+          <tr><td><div class="td-n">RDL Unilateral (mancuerna)</div><div class="td-t">Bisagra a una pierna. Mancuerna mano contraria. Cadera cuadrada.</div></td><td><span class="td-s">3 × 10 c/lado</span></td><td><div class="wprog"><div class="w-row"><span class="w-dot d1"></span><span class="w-val d1">10 kg c/m</span></div><div class="w-row"><span class="w-dot d2"></span><span class="w-val d2">13 kg</span></div><div class="w-row"><span class="w-dot d3"></span><span class="w-val d3">16 kg</span></div></div></td><td><span class="prog reps">▲ +1–2 reps</span></td></tr>
+          <tr><td><div class="td-n">Nordic Curl Negativo</div><div class="td-t">SOLO bajada 4–5 seg. Nunca saltar. Tu seguro de isquios para correr.</div></td><td><span class="td-s">3 × 5</span></td><td><div class="wprog"><div class="w-row"><span class="w-dot d1"></span><span class="w-val d1">Peso corporal</span></div></div></td><td><span class="prog maint">⚡ Siempre obligatorio</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="blk-head abs"><span class="bh-icon">🔥</span><span class="bh-num abs">4 · ABS</span><div><div class="bh-title abs">Abs — 5 Ejercicios</div><div class="bh-sub">~15 min · estabilidad pélvica + core</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc abs"><div class="xc-n">ABS 01</div><div class="xc-name">Dead Bug</div><div class="xc-meta abs">3 × 12 c/lado</div><div class="xc-tip">+2 reps vs lunes. ¿Misma calidad tras el deadlift?</div><div class="xc-why">Core profundo — siempre el primero</div><a href="https://www.youtube.com/watch?v=4XLEnwUr1d8" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc abs"><div class="xc-n">ABS 02</div><div class="xc-name">Hollow Body Hold</div><div class="xc-meta abs">3 × 22 seg</div><div class="xc-tip">+2 seg vs lunes. Pequeña progresión dentro de la semana.</div><div class="xc-why">Mantenimiento del patrón ante fatiga de pierna</div><a href="https://www.youtube.com/watch?v=LlDNef_Ztsc" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc abs"><div class="xc-n">ABS 03</div><div class="xc-name">Glute Bridge March</div><div class="xc-meta abs">3 × 10 c/lado</div><div class="xc-tip">Puente arriba, rodillas alternando. Caderas niveladas.</div><div class="xc-why">Core + glúteo coordinados — ideal post-isquios</div><a href="https://www.youtube.com/watch?v=VZsTqNDiKnc" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc abs"><div class="xc-n">ABS 04</div><div class="xc-name">Side Plank</div><div class="xc-meta abs">3 × 25 seg c/lado</div><div class="xc-tip">Cadera arriba. No dejes caer la cadera.</div><div class="xc-why">Cuadrado lumbar — protege cadera en running</div><a href="https://www.youtube.com/watch?v=_6vjo5yFo1U" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc abs"><div class="xc-n">ABS 05</div><div class="xc-name">Pallof Press</div><div class="xc-meta abs">3 × 10 c/lado</div><div class="xc-tip">Sin girar. 1 seg extendido. Vuelta lenta.</div><div class="xc-why">Anti-rotación — protege columna bajo carga asimétrica</div><a href="https://www.youtube.com/watch?v=AH_QZLm_0-s" target="_blank" class="xl b">▶ Ver</a></div>
+    </div></div>
+  </div>
+
+  <div class="block">
+    <div class="blk-head cali"><span class="bh-icon">💪</span><span class="bh-num cali">5 · CALI</span><div><div class="bh-title cali">Calistenia — Cadena Inferior</div><div class="bh-sub">Sin jalones · progresión de pierna · regreso gradual</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc cali"><div class="xc-n">CALI 01</div><div class="xc-name">Pistol Squat Asistido</div><div class="xc-meta cali">3 × 6 c/lado (+1 vs lunes)</div><div class="xc-tip">+1 rep vs lunes. Siente si hay mejora de ROM desde el primer día.</div><div class="xc-why">Progresión unilateral gradual</div><a href="https://www.youtube.com/watch?v=vq5-vdGJc0I" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc cali"><div class="xc-n">CALI 02</div><div class="xc-name">Single-Leg Glute Bridge</div><div class="xc-meta cali">3 × 12 c/lado</div><div class="xc-tip">2 seg abajo. Empuja con el talón. Caderas niveladas.</div><div class="xc-why">Glúteo unilateral — refuerza hip thrust</div><a href="https://www.youtube.com/watch?v=XCEBdOgkj4M" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc cali"><div class="xc-n">CALI 03</div><div class="xc-name">Hollow Body Rock</div><div class="xc-meta cali">3 × 10 reps</div><div class="xc-tip">+2 reps vs lunes. Mantén forma perfecta de banana.</div><div class="xc-why">Core dinámico — progresión del hold</div><a href="https://www.youtube.com/watch?v=9aDKnBpGpX4" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc cali"><div class="xc-n">CALI 04</div><div class="xc-name">Deep Squat Hold</div><div class="xc-meta cali">3 × 70 seg</div><div class="xc-tip">+10 seg vs lunes. Lo dominas — sube gradualmente.</div><div class="xc-why">Movilidad funcional — tobillo + cadera</div><a href="https://www.youtube.com/watch?v=ghm3NaJJZMg" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc cali"><div class="xc-n">CALI 05</div><div class="xc-name">Bear Crawl Hold</div><div class="xc-meta cali">3 × 22 seg</div><div class="xc-tip">+2 seg vs lunes. Progresión mínima dentro de la semana de regreso.</div><div class="xc-why">Core + hombro — donde ocurre la adaptación</div><a href="https://www.youtube.com/watch?v=MXvC1MFivjE" target="_blank" class="xl b">▶ Ver</a></div>
+    </div></div>
+  </div>
+
+  <div class="block">
+    <div class="blk-head mpost"><span class="bh-icon">🌙</span><span class="bh-num mpost">POST</span><div><div class="bh-title mpost">Movilidad Post (Yin)</div><div class="bh-sub">~15 min · cadena posterior · isquios + cadera</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc mpost"><div class="xc-n">POST 01</div><div class="xc-name">Pigeon Pose</div><div class="xc-meta mpost">3 min c/lado</div><div class="xc-tip">Post glúteo — hoy más intenso. Respira en la resistencia.</div><div class="xc-why">Rotadores externos — más importante post-glúteo</div><a href="https://www.youtube.com/watch?v=0qzn5RkXuTU" target="_blank" class="xl t">▶ Ver</a></div>
+      <div class="xc mpost"><div class="xc-n">POST 02</div><div class="xc-name">Supine Hamstring Stretch</div><div class="xc-meta mpost">2 min c/lado</div><div class="xc-tip">Post deadlift y leg curl, los isquios estarán tensos.</div><div class="xc-why">Recuperación isquiotibial — reduce DOMS</div><a href="https://www.youtube.com/watch?v=7TGrtJMTG6c" target="_blank" class="xl t">▶ Ver</a></div>
+      <div class="xc mpost"><div class="xc-n">POST 03</div><div class="xc-name">Saddle Pose</div><div class="xc-meta mpost">2–3 min</div><div class="xc-tip">De rodillas entre talones. Cuádriceps y psoas se liberan.</div><div class="xc-why">Psoas + cuádriceps — tensos del hip thrust</div><a href="https://www.youtube.com/watch?v=LTcBEg8Pqto" target="_blank" class="xl t">▶ Ver</a></div>
+      <div class="xc mpost"><div class="xc-n">POST 04</div><div class="xc-name">Supine Twist</div><div class="xc-meta mpost">2 min c/lado</div><div class="xc-tip">Tumbada, rodilla al pecho y cruza al lado.</div><div class="xc-why">Descompresión lumbar post-deadlift</div><a href="https://www.youtube.com/watch?v=3YCuvBcCkNI" target="_blank" class="xl t">▶ Ver</a></div>
+      <div class="xc mpost"><div class="xc-n">POST 05</div><div class="xc-name">Calf Stretch (pared)</div><div class="xc-meta mpost">90 seg c/pierna</div><div class="xc-tip">Gastrocnemio + sóleo. Los dos.</div><div class="xc-why">Siempre olvidados, siempre necesarios</div><a href="https://www.youtube.com/watch?v=MpGBnNJqMiw" target="_blank" class="xl t">▶ Ver</a></div>
+    </div></div>
+  </div>
+</div>
+
+<!-- ══ VIERNES ══ -->
+<div class="panel" id="p-fri">
+  <div class="ph">
+    <div>
+      <div class="ph-title">VIERNES<br>ESPALDA & TRÍCEPS</div>
+      <div class="ph-tags"><span class="ptag arm">Tren Superior</span><span class="ptag run">🏃 Run hoy</span><span class="ptag ret">Lat Pulldown 30 kg S1 · Remo 22 kg</span></div>
+    </div>
+    <div class="ph-aside">Lat Pulldown empieza en 30 kg esta semana (vs 45 kg del V5). Puede sentirse muy ligero — perfecto. La memoria muscular hace que recuperes el ritmo en 2 semanas.</div>
+  </div>
+
+  <div class="block">
+    <div class="blk-head mpre"><span class="bh-icon">🌅</span><span class="bh-num mpre">PRE</span><div><div class="bh-title mpre">Movilidad Pre — Espalda + Hombro</div><div class="bh-sub">~8 min · escápula + torácica</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc mpre"><div class="xc-n">PRE 01</div><div class="xc-name">Shoulder CARs</div><div class="xc-meta mpre">6 reps c/dirección</div><div class="xc-tip">Más reps que martes. Más rango articular.</div><div class="xc-why">ROM glenohumeral antes de jalones</div><a href="https://www.youtube.com/watch?v=9M8ml_vZdVw" target="_blank" class="xl g">▶ Ver</a></div>
+      <div class="xc mpre"><div class="xc-n">PRE 02</div><div class="xc-name">Band Pull-Apart</div><div class="xc-meta mpre">3 × 15 reps</div><div class="xc-tip">Activa deltoides posterior antes de tirones.</div><div class="xc-why">Prepara manguito para jalón y remo</div><a href="https://www.youtube.com/watch?v=TpDNAKaFnpM" target="_blank" class="xl g">▶ Ver</a></div>
+      <div class="xc mpre"><div class="xc-n">PRE 03</div><div class="xc-name">Thoracic Extension (foam roller)</div><div class="xc-meta mpre">2 min · T4 a T10</div><div class="xc-tip">Perpendicular a columna. Rueda segmento a segmento.</div><div class="xc-why">Extensión torácica → mejor postura en remo</div><a href="https://www.youtube.com/watch?v=d0HEOkdxhGw" target="_blank" class="xl g">▶ Ver</a></div>
+      <div class="xc mpre"><div class="xc-n">PRE 04</div><div class="xc-name">Thread the Needle</div><div class="xc-meta mpre">8 reps c/lado</div><div class="xc-tip">Rotación torácica a cuatro patas.</div><div class="xc-why">Movilidad torácica — limita el remo si restringida</div><a href="https://www.youtube.com/watch?v=mwuKEjO7IOo" target="_blank" class="xl g">▶ Ver</a></div>
+      <div class="xc mpre"><div class="xc-n">PRE 05</div><div class="xc-name">Scapula Wall Slide</div><div class="xc-meta mpre">2 × 12 reps</div><div class="xc-tip">Espalda en pared, brazos en Y. Desliza arriba manteniendo contacto.</div><div class="xc-why">Trapecio inferior + serrato → escápula estable en jalón</div><a href="https://www.youtube.com/watch?v=MCsGkLGCEoA" target="_blank" class="xl g">▶ Ver</a></div>
+    </div></div>
+  </div>
+
+  <div class="block">
+    <div class="blk-head plyo"><span class="bh-icon">🔴</span><span class="bh-num plyo">1 · PLYO</span><div><div class="bh-title plyo">Plyometrics — Tren Superior</div><div class="bh-sub">~8 min</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc plyo"><div class="xc-n">PLYO 01</div><div class="xc-name">Push-Up Negativo Explosivo</div><div class="xc-meta plyo">3 × 4 reps</div><div class="xc-tip">¿Mejor que martes? Compara la sensación. Misma progresión.</div><div class="xc-why">↑ Potencia de pecho — activa CNS</div><a href="https://www.youtube.com/watch?v=BdLeRG-u5D8" target="_blank" class="xl r">▶ Ver</a></div>
+      <div class="xc plyo"><div class="xc-n">PLYO 02</div><div class="xc-name">MB Chest Pass (pared)</div><div class="xc-meta plyo">3 × 8 reps</div><div class="xc-tip">Máxima fuerza desde el pecho contra la pared.</div><div class="xc-why">↑ Potencia de press horizontal</div><a href="https://www.youtube.com/watch?v=fVpRqkDl0zs" target="_blank" class="xl r">▶ Ver</a></div>
+    </div></div>
+  </div>
+
+  <div class="block">
+    <div class="blk-head power"><span class="bh-icon">⚡</span><span class="bh-num power">2 · POWER</span><div><div class="bh-title power">Power — Jalón Explosivo</div><div class="bh-sub">~8 min · inverted row + KB row explosivo</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc power"><div class="xc-n">PWR 01</div><div class="xc-name">Inverted Row Explosivo</div><div class="xc-meta power">3 × 6 reps · rápido arriba</div><div class="xc-tip">Cuerpo recto. Jala RÁPIDO al pecho. Baja lento 3 seg. Escápulas atrás en la cima.</div><div class="xc-why">↑ Potencia de jalón horizontal → remo más fuerte</div><a href="https://www.youtube.com/watch?v=LkDZXMRpOtA" target="_blank" class="xl o">▶ Ver</a></div>
+      <div class="xc power"><div class="xc-n">PWR 02</div><div class="xc-name">KB Single-Arm Row Explosivo</div><div class="xc-meta power">3 × 6 c/lado · KB ligera</div><div class="xc-tip">Remo con KB. Jala RÁPIDO, baja lento 3 seg. Codo cerca del cuerpo.</div><div class="xc-why">↑ Potencia de jalón vertical → lat pulldown más fuerte</div><a href="https://www.youtube.com/watch?v=DMo3HJoAwrk" target="_blank" class="xl o">▶ Ver</a></div>
+    </div></div>
+  </div>
+
+  <div class="block">
+    <div class="blk-head str"><span class="bh-icon">🏋️</span><span class="bh-num str">3 · STRENGTH</span><div><div class="bh-title str">Strength — Espalda & Tríceps</div><div class="bh-sub">Lat Pulldown 30 kg · Remo 22 kg · S1 readaptación</div></div></div>
+    <div class="blk-body">
+      <table class="st">
+        <thead><tr><th style="width:32%">Ejercicio</th><th>Series × Reps</th><th>Pesos (S1 / S2 / S3)</th><th>Objetivo</th></tr></thead>
+        <tbody>
+          <tr><td><div class="td-n">Lat Pulldown (jalón al pecho)</div><div class="td-t">Agarre ancho. Jala al pecho alto. Sube controlado. S1 puede sentirse fácil — añade reps.</div></td><td><span class="td-s">4 × 10–12</span></td><td><div class="wprog"><div class="w-row"><span class="w-dot d1"></span><span class="w-val d1">30 kg</span></div><div class="w-row"><span class="w-dot d2"></span><span class="w-val d2">37 kg</span></div><div class="w-row"><span class="w-dot d3"></span><span class="w-val d3">45 kg</span></div></div></td><td><span class="prog reps">▲ +1–2 reps c/semana</span></td></tr>
+          <tr><td><div class="td-n">Remo en polea sentado</div><div class="td-t">Agarre neutro. Codos hacia atrás. Aprieta escápulas al final.</div></td><td><span class="td-s">4 × 10–12</span></td><td><div class="wprog"><div class="w-row"><span class="w-dot d1"></span><span class="w-val d1">22 kg</span></div><div class="w-row"><span class="w-dot d2"></span><span class="w-val d2">28 kg</span></div><div class="w-row"><span class="w-dot d3"></span><span class="w-val d3">35 kg</span></div></div></td><td><span class="prog reps">▲ +1–2 reps</span></td></tr>
+          <tr><td><div class="td-n">Remo con apoyo (T-bar / pecho)</div><div class="td-t">Pecho en el pad. Elimina la lumbar del movimiento.</div></td><td><span class="td-s">3 × 10–12</span></td><td><div class="wprog"><div class="w-row"><span class="w-dot d1"></span><span class="w-val d1">~65%</span></div><div class="w-row"><span class="w-dot d2"></span><span class="w-val d2">~80%</span></div><div class="w-row"><span class="w-dot d3"></span><span class="w-val d3">Habitual</span></div></div></td><td><span class="prog reps">▲ +1–2 reps</span></td></tr>
+          <tr><td><div class="td-n">Face Pull</div><div class="td-t">Cuerda a la altura del rostro. Rotación externa al final.</div></td><td><span class="td-s">3 × 15</span></td><td><div class="wprog"><div class="w-row"><span class="w-dot d1"></span><span class="w-val d1">Ligero</span></div></div></td><td><span class="prog maint">— Calidad siempre</span></td></tr>
+          <tr><td><div class="td-n">Skull Crusher (barra EZ)</div><div class="td-t">Codos fijos. Baja hacia la frente. Extiende completamente.</div></td><td><span class="td-s">3 × 10–12</span></td><td><div class="wprog"><div class="w-row"><span class="w-dot d1"></span><span class="w-val d1">~65%</span></div><div class="w-row"><span class="w-dot d2"></span><span class="w-val d2">~80%</span></div><div class="w-row"><span class="w-dot d3"></span><span class="w-val d3">Habitual</span></div></div></td><td><span class="prog reps">▲ +1–2 reps</span></td></tr>
+          <tr><td><div class="td-n">Pushdown de tríceps (cuerda)</div><div class="td-t">Extensión completa abajo. Codos pegados al cuerpo.</div></td><td><span class="td-s">3 × 12–15</span></td><td><div class="wprog"><div class="w-row"><span class="w-dot d1"></span><span class="w-val d1">~65%</span></div><div class="w-row"><span class="w-dot d2"></span><span class="w-val d2">~80%</span></div><div class="w-row"><span class="w-dot d3"></span><span class="w-val d3">Habitual</span></div></div></td><td><span class="prog reps">▲ +2 reps</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="blk-head abs"><span class="bh-icon">🔥</span><span class="bh-num abs">4 · ABS</span><div><div class="bh-title abs">Abs — Push final de semana</div><div class="bh-sub">~15 min · máximos de la semana de regreso</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc abs"><div class="xc-n">ABS 01</div><div class="xc-name">Dead Bug</div><div class="xc-meta abs">3 × 12 c/lado (máximo S1)</div><div class="xc-tip">Máximo de la semana. ¿Calidad en las últimas reps? Ese es el test.</div><div class="xc-why">PR de reps S1 — registra para S2</div><a href="https://www.youtube.com/watch?v=4XLEnwUr1d8" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc abs"><div class="xc-n">ABS 02</div><div class="xc-name">Hollow Body Hold</div><div class="xc-meta abs">3 × 25 seg (igual que miérc.)</div><div class="xc-tip">Si el miércoles llegaste a 25 seg, hoy consolidas. S2 objetivo: 35 seg.</div><div class="xc-why">Mantenimiento del patrón — regreso gradual</div><a href="https://www.youtube.com/watch?v=LlDNef_Ztsc" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc abs"><div class="xc-n">ABS 03</div><div class="xc-name">Leg Raise</div><div class="xc-meta abs">3 × 12 reps · 3 seg abajo</div><div class="xc-tip">Lumbar pegada. La última rep = la primera.</div><div class="xc-why">Abdomen inferior — zona clave</div><a href="https://www.youtube.com/watch?v=JB2oyawG9KI" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc abs"><div class="xc-n">ABS 04</div><div class="xc-name">Side Plank</div><div class="xc-meta abs">3 × 28 seg c/lado</div><div class="xc-tip">+3 seg vs lunes. PR de la semana. Registra el número.</div><div class="xc-why">Tu mejor side plank S1 — referencia para S2</div><a href="https://www.youtube.com/watch?v=_6vjo5yFo1U" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc abs"><div class="xc-n">ABS 05</div><div class="xc-name">Plank RKC</div><div class="xc-meta abs">3 × 15 seg tensión máxima</div><div class="xc-tip">Aprieta TODO. Calidad de tensión > tiempo.</div><div class="xc-why">Cierre neural de semana — reclutamiento completo</div><a href="https://www.youtube.com/watch?v=pSHjTRCQxIw" target="_blank" class="xl b">▶ Ver</a></div>
+    </div></div>
+  </div>
+
+  <div class="block">
+    <div class="blk-head cali"><span class="bh-icon">💪</span><span class="bh-num cali">5 · CALI</span><div><div class="bh-title cali">Calistenia — Tren Superior Jalón</div><div class="bh-sub">Pull-up 65 kg · comparación vs martes</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc cali"><div class="xc-n">CALI 01</div><div class="xc-name">Pull-Up Asistida (65 kg banda)</div><div class="xc-meta cali">4 × máx reps · compara con martes</div><div class="xc-tip">¿Más reps que el martes? La readaptación ya está funcionando. Registra cada serie.</div><div class="xc-why">Muscle memory en acción — S2 bajas a 60 kg</div><div class="xc-prog">→ Registra: mar vs vie vs sáb</div><a href="https://www.youtube.com/watch?v=Hdc7Mw6BIEE" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc cali"><div class="xc-n">CALI 02</div><div class="xc-name">Scapula Pull-Up</div><div class="xc-meta cali">4 × 10 reps · más explosivo</div><div class="xc-tip">Más velocidad en la depresión escapular que martes.</div><div class="xc-why">Fuerza de activación del lat</div><a href="https://www.youtube.com/watch?v=oBOd_9UvEzU" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc cali"><div class="xc-n">CALI 03</div><div class="xc-name">Hollow Body Rock</div><div class="xc-meta cali">3 × 10 reps</div><div class="xc-tip">Forma perfecta al final de semana.</div><div class="xc-why">Core dinámico — cierra la semana con calidad</div><a href="https://www.youtube.com/watch?v=9aDKnBpGpX4" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc cali"><div class="xc-n">CALI 04</div><div class="xc-name">Dip en banco</div><div class="xc-meta cali">3 × 11 reps (+1 vs martes)</div><div class="xc-tip">+1 rep vs martes. Pequeña progresión dentro de la semana.</div><div class="xc-why">Tríceps + pecho — complementa skull crusher</div><a href="https://www.youtube.com/watch?v=sM4SHFSjMQ0" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc cali"><div class="xc-n">CALI 05</div><div class="xc-name">Bear Crawl Hold</div><div class="xc-meta cali">3 × 22 seg</div><div class="xc-tip">Cierra la semana manteniendo lo ganado. Siguiente semana: 27 seg.</div><div class="xc-why">Estabilidad hombro — previene impingement</div><a href="https://www.youtube.com/watch?v=MXvC1MFivjE" target="_blank" class="xl b">▶ Ver</a></div>
+    </div></div>
+  </div>
+
+  <div class="block">
+    <div class="blk-head mpost"><span class="bh-icon">🌙</span><span class="bh-num mpost">POST</span><div><div class="bh-title mpost">Movilidad Post + Post-Run</div><div class="bh-sub">~15 min · espalda + hombro + cadena inferior post-carrera</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc mpost"><div class="xc-n">POST 01</div><div class="xc-name">Child's Pose lateral</div><div class="xc-meta mpost">90 seg c/lado</div><div class="xc-tip">Camina manos a un lado. Estira el lat trabajado.</div><div class="xc-why">Lat + hombro — los más trabajados hoy</div><a href="https://www.youtube.com/watch?v=1HCflSFkRig" target="_blank" class="xl t">▶ Ver</a></div>
+      <div class="xc mpost"><div class="xc-n">POST 02</div><div class="xc-name">Chest Opener Hold</div><div class="xc-meta mpost">2 × 60 seg</div><div class="xc-tip">Abre el pecho como contrapeso a los jalones.</div><div class="xc-why">Balance anterior-posterior del hombro</div><a href="https://www.youtube.com/watch?v=MNdQ8PKV6lQ" target="_blank" class="xl t">▶ Ver</a></div>
+      <div class="xc mpost"><div class="xc-n">POST 03</div><div class="xc-name">Pigeon Pose (post-run)</div><div class="xc-meta mpost">3 min c/lado</div><div class="xc-tip">Obligatorio post-carrera.</div><div class="xc-why">Rotadores externos tensados por running</div><a href="https://www.youtube.com/watch?v=0qzn5RkXuTU" target="_blank" class="xl t">▶ Ver</a></div>
+      <div class="xc mpost"><div class="xc-n">POST 04</div><div class="xc-name">Supine Twist</div><div class="xc-meta mpost">2 min c/lado</div><div class="xc-tip">Rodilla al pecho, cruza. Descomprime la columna.</div><div class="xc-why">Descompresión lumbar — fin de semana</div><a href="https://www.youtube.com/watch?v=3YCuvBcCkNI" target="_blank" class="xl t">▶ Ver</a></div>
+      <div class="xc mpost"><div class="xc-n">POST 05</div><div class="xc-name">Calf Stretch (pared)</div><div class="xc-meta mpost">90 seg c/pierna</div><div class="xc-tip">Post-run siempre. Gastrocnemio + sóleo.</div><div class="xc-why">Recuperación gemelo → previene fascitis</div><a href="https://www.youtube.com/watch?v=MpGBnNJqMiw" target="_blank" class="xl t">▶ Ver</a></div>
+    </div></div>
+  </div>
+
+  <div class="block">
+    <div class="blk-head cardio"><span class="bh-icon">🏃</span><span class="bh-num cardio">6 · CARDIO</span><div><div class="bh-title cardio">Cardio — Runna App</div><div class="bh-sub">Después del gym · piernas frescas de brazo</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc cardio"><div class="xc-n">RUN</div><div class="xc-name">Sesión Runna</div><div class="xc-meta cardio">Sigue el plan prescrito</div><div class="xc-tip">Semana 1: si Runna pone algo intenso, baja al 80% del esfuerzo. Tu cuerpo está readaptándose.</div><div class="xc-why">Base aeróbica — el plan de Runna gestiona la carga</div></div>
+    </div></div>
+  </div>
+</div>
+
+<!-- ══ SÁBADO ══ -->
+<div class="panel" id="p-sat">
+  <div class="ph">
+    <div>
+      <div class="ph-title">SÁBADO<br>YOGA + CALISTENIA</div>
+      <div class="ph-tags"><span class="ptag yoga">Yoga Yin largo</span><span class="ptag run">🏃 Runna suave</span><span class="ptag note">Recuperación activa · sin gym</span></div>
+    </div>
+    <div class="ph-aside">Más suave que el miércoles. Primera semana de vuelta — sábado es para consolidar, no para empujar. Yoga largo y carrera fácil.</div>
+  </div>
+
+  <div class="block">
+    <div class="blk-head plyo"><span class="bh-icon">🔴</span><span class="bh-num plyo">1 · PLYO</span><div><div class="bh-title plyo">Plyometrics (muy suave)</div><div class="bh-sub">~5 min · mantenimiento · sin carga</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc plyo"><div class="xc-n">PLYO 01</div><div class="xc-name">Squat Jump muy suave</div><div class="xc-meta plyo">2 × 5 reps</div><div class="xc-tip">Versión muy ligera. Mantén el patrón. Semana 1 de regreso: no empujes la intensidad.</div><div class="xc-why">Mantiene adaptación sin añadir fatiga</div><a href="https://www.youtube.com/watch?v=U4s4mEQ5VOU" target="_blank" class="xl r">▶ Ver</a></div>
+    </div></div>
+  </div>
+
+  <div class="block">
+    <div class="blk-head power"><span class="bh-icon">⚡</span><span class="bh-num power">2 · POWER</span><div><div class="bh-title power">Calistenia — Consolidación S1</div><div class="bh-sub">3 series pull-up · referencia final semana</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc power"><div class="xc-n">PWR 01</div><div class="xc-name">Pull-Up Asistida (65 kg banda)</div><div class="xc-meta power">3 × máx reps (referencia final)</div><div class="xc-tip">3 series, no 4. ¿Mejoraron vs martes? Registra. Esta es tu línea base de la S1.</div><div class="xc-why">Línea base S1 — referencia para comparar S2 y S3</div><div class="xc-prog">→ Registra: martes · miércoles · viernes · sábado</div><a href="https://www.youtube.com/watch?v=Hdc7Mw6BIEE" target="_blank" class="xl o">▶ Ver</a></div>
+      <div class="xc power"><div class="xc-n">PWR 02</div><div class="xc-name">Hollow Body Rock</div><div class="xc-meta power">2 × 8 reps</div><div class="xc-tip">Consolidación. Forma perfecta.</div><div class="xc-why">Mantiene la adaptación del miércoles</div><a href="https://www.youtube.com/watch?v=9aDKnBpGpX4" target="_blank" class="xl o">▶ Ver</a></div>
+    </div></div>
+  </div>
+
+  <div class="block">
+    <div class="blk-head abs"><span class="bh-icon">🔥</span><span class="bh-num abs">4 · ABS</span><div><div class="bh-title abs">Abs (versión suave S1)</div><div class="bh-sub">~10 min · 2 series · calidad sobre cantidad</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc abs"><div class="xc-n">ABS 01</div><div class="xc-name">Dead Bug</div><div class="xc-meta abs">2 × 10 c/lado</div><div class="xc-tip">2 series, no 3. Calidad perfecta. Semana 1 de regreso.</div><div class="xc-why">Mantener patrón sin fatiga extra</div><a href="https://www.youtube.com/watch?v=4XLEnwUr1d8" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc abs"><div class="xc-n">ABS 02</div><div class="xc-name">Hollow Body Hold</div><div class="xc-meta abs">2 × 20 seg</div><div class="xc-tip">Versión corta. Mantenimiento del patrón neural.</div><div class="xc-why">Mantiene patrón activo</div><a href="https://www.youtube.com/watch?v=LlDNef_Ztsc" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc abs"><div class="xc-n">ABS 03</div><div class="xc-name">Glute Bridge March</div><div class="xc-meta abs">2 × 10 c/lado</div><div class="xc-tip">Post-carrera. Reactivación glútea.</div><div class="xc-why">Reactivación glútea post-run</div><a href="https://www.youtube.com/watch?v=VZsTqNDiKnc" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc abs"><div class="xc-n">ABS 04</div><div class="xc-name">Side Plank</div><div class="xc-meta abs">2 × 20 seg c/lado</div><div class="xc-tip">Forma perfecta. Mantenimiento S1.</div><div class="xc-why">Estabilidad lateral — mantenimiento</div><a href="https://www.youtube.com/watch?v=_6vjo5yFo1U" target="_blank" class="xl b">▶ Ver</a></div>
+      <div class="xc abs"><div class="xc-n">ABS 05</div><div class="xc-name">Bear Crawl Hold</div><div class="xc-meta abs">2 × 18 seg</div><div class="xc-tip">Más corto que los días de gym. Cierra la semana con calma.</div><div class="xc-why">Cierre del ciclo semanal</div><a href="https://www.youtube.com/watch?v=MXvC1MFivjE" target="_blank" class="xl b">▶ Ver</a></div>
+    </div></div>
+  </div>
+
+  <div class="block">
+    <div class="blk-head cardio"><span class="bh-icon">🏃</span><span class="bh-num cardio">5 · CARDIO</span><div><div class="bh-title cardio">Runna — Easy Run</div><div class="bh-sub">Zona 2 · conversacional · primera semana de regreso</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc cardio"><div class="xc-n">RUN</div><div class="xc-name">Sesión Runna — Easy Run</div><div class="xc-meta cardio">Zona 2 · conversacional</div><div class="xc-tip">Semana 1: si Runna lo marca como día fácil, que sea MUY fácil. El cuerpo tiene mucho que readaptar esta semana. Puedes reducir km si te sientes muy cargada.</div><div class="xc-why">Base aeróbica sin comprometer la readaptación muscular</div></div>
+    </div></div>
+  </div>
+
+  <div class="block">
+    <div class="blk-head yoga"><span class="bh-icon">🧘</span><span class="bh-num yoga">6 · YOGA</span><div><div class="bh-title yoga">Yoga Yin Largo + Post-Carrera</div><div class="bh-sub">~40 min · toda la semana de regreso se recupera aquí</div></div></div>
+    <div class="blk-body"><div class="cg">
+      <div class="xc yoga"><div class="xc-n">YIN 01</div><div class="xc-name">Pigeon Pose</div><div class="xc-meta yoga">4 min c/lado</div><div class="xc-tip">Post-carrera. Primera semana de vuelta — tómate el tiempo. Respira profundo.</div><div class="xc-why">Rotadores externos — la pose más importante del sábado</div><a href="https://www.youtube.com/watch?v=0qzn5RkXuTU" target="_blank" class="xl p">▶ Ver</a></div>
+      <div class="xc yoga"><div class="xc-n">YIN 02</div><div class="xc-name">Dragon Pose</div><div class="xc-meta yoga">3 min c/lado</div><div class="xc-tip">Psoas y flexores. La mudanza + los meses sin entrenar tensaron esta cadena mucho.</div><div class="xc-why">Liberación del psoas — el músculo del estrés</div><a href="https://www.youtube.com/watch?v=7oGbZN8vQLk" target="_blank" class="xl p">▶ Ver</a></div>
+      <div class="xc yoga"><div class="xc-n">YIN 03</div><div class="xc-name">Caterpillar</div><div class="xc-meta yoga">5 min · el hold más largo</div><div class="xc-tip">Deja ir todo. Espalda redondeada OK en yin. Primera semana completa — te lo ganaste.</div><div class="xc-why">Cadena posterior completa — el mayor release de la semana</div><a href="https://www.youtube.com/watch?v=5a3xtdC5_AM" target="_blank" class="xl p">▶ Ver</a></div>
+      <div class="xc yoga"><div class="xc-n">YIN 04</div><div class="xc-name">Supine Twist</div><div class="xc-meta yoga">3 min c/lado</div><div class="xc-tip">Rodilla al pecho y cruza. Descompresión lumbar de la semana de readaptación.</div><div class="xc-why">Descompresión vertebral — esencial tras la primera semana</div><a href="https://www.youtube.com/watch?v=3YCuvBcCkNI" target="_blank" class="xl p">▶ Ver</a></div>
+      <div class="xc yoga"><div class="xc-n">YIN 05</div><div class="xc-name">Butterfly (Yin)</div><div class="xc-meta yoga">4 min</div><div class="xc-tip">Plantas juntas. Dobla adelante. No empujes rodillas. Solo deja caer.</div><div class="xc-why">Aductores + cadera interna — completa la apertura</div><a href="https://www.youtube.com/watch?v=CsuB7lOZrZ4" target="_blank" class="xl p">▶ Ver</a></div>
+      <div class="xc yoga"><div class="xc-n">CIERRE</div><div class="xc-name">Savasana</div><div class="xc-meta yoga">8–10 min · bien ganado</div><div class="xc-tip">Sin teléfono. Sin prisa. Primera semana completa en Madrid. Nueva etapa, mismo compromiso.</div><div class="xc-why">Parasimpático — aquí se construye todo lo que entrenaste esta semana</div><a href="https://www.youtube.com/watch?v=1VYlOKUdylM" target="_blank" class="xl p">▶ Ver</a></div>
+    </div></div>
+  </div>
+</div>
+
+<!-- ══ NOTAS ══ -->
+<div class="panel" id="p-notes">
+  <div class="ph">
+    <div>
+      <div class="ph-title">REGISTRO<br>DATOS → V7</div>
+      <div class="ph-tags">
+        <span class="ptag note">📋 Anota al final de cada sesión</span>
+        <span class="ptag ret">Dámelos y construyo la semana siguiente</span>
+      </div>
+    </div>
+    <div class="ph-aside">Al final de la semana dime estos datos. Con ellos construyo el plan siguiente con los pesos exactos, ajusto las progresiones y sé qué está funcionando.</div>
+  </div>
+
+  <div class="notes-sec">
+    <div class="ns-title">📋 Qué necesito para construir el V7</div>
+    <div class="ns-sub">Rellena al final de la semana y dámelo</div>
+
+    <div class="ns-grid">
+      <div class="nc">
+        <div class="nc-title r">🔴 Plyometrics / Power</div>
+        <div class="ni"><span class="ni-k">Box jump</span><span class="ni-v">altura usada + sensación (fácil/difícil/imposible)</span></div>
+        <div class="ni"><span class="ni-k">Broad jump</span><span class="ni-v">distancia media aproximada</span></div>
+        <div class="ni"><span class="ni-k">KB swing</span><span class="ni-v">peso de KB usado</span></div>
+        <div class="ni"><span class="ni-k">MB slam</span><span class="ni-v">peso de medicine ball usado</span></div>
+      </div>
+
+      <div class="nc">
+        <div class="nc-title g">💪 Fuerza — Pierna</div>
+        <div class="ni"><span class="ni-k">Smith squat</span><span class="ni-v">reps en última serie</span></div>
+        <div class="ni"><span class="ni-k">Leg press</span><span class="ni-v">reps en última serie</span></div>
+        <div class="ni"><span class="ni-k">Hip thrust</span><span class="ni-v">reps en última serie</span></div>
+        <div class="ni"><span class="ni-k">Deadlift</span><span class="ni-v">reps conseguidas (objetivo: 6–8)</span></div>
+        <div class="ni"><span class="ni-k">Leg curl</span><span class="ni-v">reps + ¿se siente bien el peso?</span></div>
+        <div class="ni"><span class="ni-k">RDL unilat.</span><span class="ni-v">reps conseguidas c/lado</span></div>
+        <div class="ni"><span class="ni-k">Leg ext.</span><span class="ni-v">tiempo de hold conseguido</span></div>
+      </div>
+
+      <div class="nc">
+        <div class="nc-title b">💪 Fuerza — Brazo</div>
+        <div class="ni"><span class="ni-k">Lat pulldown</span><span class="ni-v">reps a 30 kg · ¿se siente bien?</span></div>
+        <div class="ni"><span class="ni-k">Remo polea</span><span class="ni-v">reps a 22 kg</span></div>
+        <div class="ni"><span class="ni-k">Bench press</span><span class="ni-v">reps a 22 kg</span></div>
+        <div class="ni"><span class="ni-k">Shoulder press</span><span class="ni-v">reps a 7 kg c/m</span></div>
+        <div class="ni"><span class="ni-k">Curl Z</span><span class="ni-v">reps con solo barra</span></div>
+        <div class="ni"><span class="ni-k">Laterales</span><span class="ni-v">reps a 4 kg</span></div>
+      </div>
+
+      <div class="nc">
+        <div class="nc-title o">🎯 Calistenia</div>
+        <div class="ni"><span class="ni-k">Pull-up mar.</span><span class="ni-v">reps c/serie (ej: 7,6,6,5)</span></div>
+        <div class="ni"><span class="ni-k">Pull-up miérc.</span><span class="ni-v">reps c/serie (5 series)</span></div>
+        <div class="ni"><span class="ni-k">Pull-up vier.</span><span class="ni-v">reps c/serie</span></div>
+        <div class="ni"><span class="ni-k">Pull-up sáb.</span><span class="ni-v">reps c/serie (3 series)</span></div>
+        <div class="ni"><span class="ni-k">Push-up bench.</span><span class="ni-v">reps en benchmark miércoles</span></div>
+        <div class="ni"><span class="ni-k">Pistol squat</span><span class="ni-v">¿mejora en el agarre?</span></div>
+        <div class="ni"><span class="ni-k">Bear hold</span><span class="ni-v">tiempo conseguido c/serie</span></div>
+      </div>
+
+      <div class="nc">
+        <div class="nc-title p">🔥 Abs & Core</div>
+        <div class="ni"><span class="ni-k">Dead bug</span><span class="ni-v">máx reps limpias (viernes)</span></div>
+        <div class="ni"><span class="ni-k">Hollow hold</span><span class="ni-v">tiempo máximo conseguido</span></div>
+        <div class="ni"><span class="ni-k">Side plank</span><span class="ni-v">tiempo máximo conseguido</span></div>
+        <div class="ni"><span class="ni-k">Bear crawl</span><span class="ni-v">tiempo conseguido (lunes y jueves)</span></div>
+      </div>
+
+      <div class="nc">
+        <div class="nc-title r">🌿 Sensaciones generales</div>
+        <div class="ni"><span class="ni-k">Energía</span><span class="ni-v">1–10 general de la semana</span></div>
+        <div class="ni"><span class="ni-k">Dolores</span><span class="ni-v">¿algo molesta? zona + intensidad</span></div>
+        <div class="ni"><span class="ni-k">DOMS</span><span class="ni-v">¿qué grupos musculares te dolieron más?</span></div>
+        <div class="ni"><span class="ni-k">Running</span><span class="ni-v">¿cómo fue la carrera? km + sensación</span></div>
+        <div class="ni"><span class="ni-k">Madrid gym</span><span class="ni-v">¿el gym nuevo tiene todo el equipamiento?</span></div>
+        <div class="ni"><span class="ni-k">Peso actual</span><span class="ni-v">si tienes medición</span></div>
+      </div>
+    </div>
+
+    <div class="ns-rule">
+      <div class="nsr-title">→ REGLAS DE PROGRESIÓN SEMANA 1 → SEMANA 2</div>
+      <div class="nsr-item">Si S1 se sintió "fácil/moderado" → S2 sube a los pesos indicados (80%). Si se sintió muy duro o hay dolor muscular excesivo → repite los mismos pesos una semana más.</div>
+      <div class="nsr-item">Pull-up: S1 con 65 kg → S2 con 60 kg → S3 con 50 kg (donde estabas en el V5). Registra reps de cada sesión para comparar la evolución.</div>
+      <div class="nsr-item">Hollow body: S1 objetivo 25 seg → S2 objetivo 35 seg → S3 objetivo 40–45 seg (donde estabas en V5).</div>
+      <div class="nsr-item">Nordic curls y face pull NUNCA cambian de peso — siempre bodyweight o ligero, siempre prioridad técnica.</div>
+      <div class="nsr-item">Si algo duele (no el quemado normal) → para, dímelo, y lo ajusto en el plan siguiente.</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<footer>
+  <p class="ft">V6 · Jessica · Madrid · 22 Jun 2026 · Regreso gradual: S1 65% → S2 80% → S3 100%</p>
+  <div class="creatine">💊 Creatina diaria — también días de yoga y sábado</div>
+</footer>
+
+<script>
+function show(day, el) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.dtab').forEach(t => t.classList.remove('active'));
+  document.getElementById('p-' + day).classList.add('active');
+  el.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function setWeek(w) {
+  document.querySelectorAll('.week-bar').forEach(b => b.classList.remove('active-week'));
+  document.querySelectorAll('.wws').forEach(b => b.className = 'wws');
+  const bar = document.querySelectorAll('.week-bar')[w-1];
+  bar.classList.add('active-week');
+  const wws = document.querySelectorAll('.wws')[w-1];
+  wws.classList.add('active-w'+w);
+}
+</script>
+</body>
+</html>
